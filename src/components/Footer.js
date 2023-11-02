@@ -151,7 +151,7 @@ const Footer = () => {
                     </dl>
                     <dl className="row g-1">
                       <dt className="col-5 col-lg-5 col-xxl-6 fw-light lh-primary">
-                        Email
+                      General Enquiry
                       </dt>
                       <dd className="col-7 col-lg-7 col-xxl-6 fw-light lh-primary">
                         <span>:</span>
@@ -159,14 +159,14 @@ const Footer = () => {
                           className="footer_link__jfCKV"
                           href="mailto:info@webandcrafts.com"
                         >
-                          info@webandcrafts.com
+                          +91 480 2733 111
                         </a>
                       </dd>
                       {/* Add more contact information here */}
                     </dl>
                     <dl className="row g-1">
                       <dt className="col-5 col-lg-5 col-xxl-6 fw-light lh-primary">
-                        Email
+                      Sales Enquiry
                       </dt>
                       <dd className="col-7 col-lg-7 col-xxl-6 fw-light lh-primary">
                         <span>:</span>
@@ -174,14 +174,14 @@ const Footer = () => {
                           className="footer_link__jfCKV"
                           href="mailto:info@webandcrafts.com"
                         >
-                          info@webandcrafts.com
+                          +91 480 2733 555
                         </a>
                       </dd>
                       {/* Add more contact information here */}
                     </dl>
                     <dl className="row g-1">
                       <dt className="col-5 col-lg-5 col-xxl-6 fw-light lh-primary">
-                        Email
+                      HR Enquiry
                       </dt>
                       <dd className="col-7 col-lg-7 col-xxl-6 fw-light lh-primary">
                         <span>:</span>
@@ -189,14 +189,14 @@ const Footer = () => {
                           className="footer_link__jfCKV"
                           href="mailto:info@webandcrafts.com"
                         >
-                          info@webandcrafts.com
+                         +91 480 2733 999
                         </a>
                       </dd>
                       {/* Add more contact information here */}
                     </dl>
                     <dl className="row g-1">
                       <dt className="col-5 col-lg-5 col-xxl-6 fw-light lh-primary">
-                        Email
+                      Whatsapp
                       </dt>
                       <dd className="col-7 col-lg-7 col-xxl-6 fw-light lh-primary">
                         <span>:</span>
@@ -204,7 +204,7 @@ const Footer = () => {
                           className="footer_link__jfCKV"
                           href="mailto:info@webandcrafts.com"
                         >
-                          info@webandcrafts.com
+                          +91 8606 483 399
                         </a>
                       </dd>
                       {/* Add more contact information here */}
