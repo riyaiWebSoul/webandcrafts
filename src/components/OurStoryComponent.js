@@ -1,4 +1,5 @@
 import React from 'react';
+import videoClip from '../image/wac.mp4'
 
 const OurStoryComponent = () => {
   return (
@@ -32,7 +33,7 @@ const OurStoryComponent = () => {
             </div>
           </div>
           <video className="dotInteractionBlock_video__r_5g9" width="100%" height="100%" loop autoPlay playsInline loading="lazy" preload="none">
-            <source src="/image/wac.mp4" type="video/mp4" />
+            <source src={videoClip} type="video/mp4" />
           </video>
         </div>
         <div className="container">
