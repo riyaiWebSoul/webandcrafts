@@ -1,19 +1,19 @@
 
 import './App.css';
-import './css/responsive.css';
-import './css/style.css';
-import './css/media.css';
-import './css/styeld.css';
-import './css/color.css'
+import '../src/assets/css/responsive.css';
+import '../src/assets/css/style.css';
+import '../src/assets/css/media.css';
+import '../src/assets/css/styeld.css';
+import '../src/assets/css/color.css'
 
-import Header from './components/Header';
-import Banner from './components/Home/Banner';
-import WorkListingSection from './components/Home/WorkListingSection';
-import ClientSection from './components/Home/ClientSection';
-import OurStoryComponent from './components/OurStoryComponent';
-import ServiceListing from './components/Home/ServiceListing';
-import CareerHomeSection from './components/Home/CareerHomeSection';
-import Footer from './components/Footer';
+import Header from './pages/Header';
+import Banner from './pages/Home/Banner';
+import WorkListingSection from './pages/Home/WorkListingSection';
+import ClientSection from './pages/Home/ClientSection';
+import OurStoryComponent from './pages/Home/OurStoryComponent';
+import ServiceListing from './pages/Home/ServiceListing';
+import CareerHomeSection from './pages/Home/CareerHomeSection';
+import Footer from './pages/Footer';
 
 function App() {
   return (
