@@ -61,10 +61,10 @@ const OurStoryComponent = () => {
           <div className="row">
             <div className="col-lg-7">
               <div className="dotInteractionBlock_content__h_CGd">
-                <h2 className="ttl-120 fw-light mb-lg-3">Our Story</h2>
-                <p className="fw-light mb-lg-5">In a world brimming with possibilities, we sprouted, seizing our destiny to create an extraordinary narrative - a tale that encapsulates laughter, tears, challenges, and triumphs.</p>
-                <div className="d-none d-sm-block">
-                  <a className="btn btn-primary light" href="/about-us">
+                <h2 className="ttl-120 fw-light mb-lg-3 displayStart" >Our Story</h2>
+                <p className="fw-light mb-lg-5 displayStart">In a world brimming with possibilities, we sprouted, seizing our destiny to create an extraordinary narrative - a tale that encapsulates laughter, tears, challenges, and triumphs.</p>
+                <div className="d-none d-sm-block displayStart">
+                  <a className="btn btn-primary light " href="/about-us">
                     <span>About us</span>
                     <span>
                       <svg className="" width="15" height="15" viewBox="0 0 1538 1024" xmlns="http://www.w3.org/2000/svg" style={{ display: 'inline-block', verticalAlign: 'middle' }}>

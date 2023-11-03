@@ -56,7 +56,7 @@ const WorkListingSection = () => {
   return (
     <section className='WorkListing_section__rN1bD' id='homeWorksWidget3' style={{ backgroundColor: '#ffffff' }}>
       <div className='container'>
-        <div className='WorkListing_heading__KeitQ'>
+        <div className='WorkListing_heading__KeitQ displayStart '>
           <h2 className='WorkListing_title__2fizb ttl-80 -mb-2 mb-lg-5 fw-regular'>Works</h2>
         </div>
         <div></div>

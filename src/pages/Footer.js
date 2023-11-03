@@ -9,10 +9,10 @@ const Footer = () => {
         <div className="footer_footer_inner__b4GIZ">
           <div className="footer_enquire_wrapper__TvnBp row">
             <div className="undefined col-md-7 col-lg-8">
-              <h3 className="footer_title__IHvgU fw-regular ttl-80 mb-1 lh-1">
+              <h3 className="footer_title__IHvgU fw-regular ttl-80 mb-1 lh-1 displayStart">
                 Get started now!
               </h3>
-              <h4 className="footer_sub_title__PFq5w ttl-28 f-secondary fw-light">
+              <h4 className="footer_sub_title__PFq5w ttl-28 f-secondary fw-light displayStart">
                 It takes less than a minute of your time.
               </h4>
             </div>
@@ -41,26 +41,26 @@ const Footer = () => {
                 <div className="footer_quick_link_items__IdAjz row">
                   <div className="footer_quick_link__znfEI col-md">
                     <div className="footer_quick_links_inner__uI2_X">
-                      <h4 className="footer_quick_link_title__SyMcx fs-18 mb-1 mb-lg-2">
+                      <h4 className="footer_quick_link_title__SyMcx fs-18 mb-1 mb-lg-2 displayStart">
                         Company
                       </h4>
-                      <ul>
-                        <li className="fw-light lh-primary">
+                      <ul >
+                        <li className="fw-light lh-primary displayStart">
                           <a href="/about-us">About</a>
                         </li>
-                        <li className="fw-light lh-primary">
+                        <li className="fw-light lh-primary displayStart">
                           <a href="/services">Services</a>
                         </li>
-                        <li className="fw-light lh-primary">
+                        <li className="fw-light lh-primary displayStart">
                           <a href="/industries">Industries</a>
                         </li>
-                        <li className="fw-light lh-primary">
+                        <li className="fw-light lh-primary displayStart">
                           <a href="/works">Works</a>
                         </li>
-                        <li className="fw-light lh-primary">
+                        <li className="fw-light lh-primary displayStart">
                           <a href="/careers">Careers</a>
                         </li>
-                        <li className="fw-light lh-primary">
+                        <li className="fw-light lh-primary displayStart">
                           <a href="/contact-us">Contact</a>
                         </li>
                       </ul>
@@ -69,20 +69,20 @@ const Footer = () => {
                   {/* Add more quick link sections here */}
                   <div className="footer_quick_link__znfEI col-md">
                     <div className="footer_quick_links_inner__uI2_X">
-                      <h4 className="footer_quick_link_title__SyMcx fs-18 mb-1 mb-lg-2">
+                      <h4 className="footer_quick_link_title__SyMcx fs-18 mb-1 mb-lg-2 displayStart" >
                         Services
                       </h4>
                       <ul>
-                        <li className="fw-light lh-primary">
-                          <a href="/section-link-1">Branding</a>
+                        <li className="fw-light lh-primary displayStart">
+                          <a href="/section-link-1 ">Branding</a>
                         </li>
-                        <li className="fw-light lh-primary">
+                        <li className="fw-light lh-primary displayStart">
                           <a href="/section-link-2">Experience Design</a>
                         </li>
-                        <li className="fw-light lh-primary">
+                        <li className="fw-light lh-primary displayStart">
                           <a href="/section-link-3">Technology</a>
                         </li>
-                        <li className="fw-light lh-primary">
+                        <li className="fw-light lh-primary displayStart">
                           <a href="/section-link-3">Digital Marketing</a>
                         </li>
                         {/* Add more links for this section as needed */}
@@ -90,35 +90,35 @@ const Footer = () => {
                     </div>
                    
                   </div>
-                  <div class="footer_quick_link__znfEI col-md">
+                  <div className="footer_quick_link__znfEI col-md">
                    
-                    <div class="footer_quick_links_inner__uI2_X">
-                      <h4 class="footer_quick_link_title__SyMcx fs-18 mb-1 mb-lg-2">
+                    <div className="footer_quick_links_inner__uI2_X">
+                      <h4 className="footer_quick_link_title__SyMcx fs-18 mb-1 mb-lg-2 displayStart">
                         Other
                       </h4>
                       <ul>
-                        <li class="fw-light lh-primary">
-                          <a href="/section-link-1">Partnership</a>
+                        <li className="fw-light lh-primary displayStart">
+                          <a href="/section-link-1 ">Partnership</a>
                         </li>
-                        <li class="fw-light lh-primary">
+                        <li className="fw-light lh-primary displayStart">
                           <a href="/section-link-2">Awards and Recognitions</a>
                         </li>
-                        <li class="fw-light lh-primary">
+                        <li className="fw-light lh-primary displayStart">
                           <a href="/section-link-3">Blogs</a>
                         </li>
-                        <li class="fw-light lh-primary">
+                        <li className="fw-light lh-primary displayStart">
                           <a href="/section-link-3">Resource</a>
                         </li>
-                        <li class="fw-light lh-primary">
+                        <li className="fw-light lh-primary displayStart">
                           <a href="/section-link-3">Augmentation</a>
                         </li>
-                        <li class="fw-light lh-primary">
+                        <li className="fw-light lh-primary displayStart">
                           <a href="/section-link-3">Testimonials</a>
                         </li>
-                        <li class="fw-light lh-primary">
+                        <li className="fw-light lh-primary displayStart">
                           <a href="/section-link-3">Our Clients</a>
                         </li>
-                        <li class="fw-light lh-primary">
+                        <li className="fw-light lh-primary displayStart">
                           <a href="/section-link-3">
                             OSubmit feedback to our CEO
                           </a>
@@ -130,15 +130,15 @@ const Footer = () => {
               </div>
               <div className="col-12 col-lg-5 col-xxl-4 mt-sm-4 mt-lg-0">
                 <div className="footer_enq_section__WN_D0">
-                  <div className="footer_quick_link_wrapper__4KFll">
-                    <h4 className="footer_quick_link_title__SyMcx fs-18 mb-2">
+                  <div className="footer_quick_link_wrapper__4KFll ">
+                    <h4 className="footer_quick_link_title__SyMcx fs-18 mb-2 displayStart">
                       Connect
                     </h4>
                     <dl className="row g-1">
-                      <dt className="col-5 col-lg-5 col-xxl-6 fw-light lh-primary">
+                      <dt className="col-5 col-lg-5 col-xxl-6 fw-light lh-primary displayStart">
                         Email
                       </dt>
-                      <dd className="col-7 col-lg-7 col-xxl-6 fw-light lh-primary">
+                      <dd className="col-7 col-lg-7 col-xxl-6 fw-light lh-primary  displayStart">
                         <span>:</span>
                         <a
                           className="footer_link__jfCKV"
@@ -150,10 +150,10 @@ const Footer = () => {
                       {/* Add more contact information here */}
                     </dl>
                     <dl className="row g-1">
-                      <dt className="col-5 col-lg-5 col-xxl-6 fw-light lh-primary">
+                      <dt className="col-5 col-lg-5 col-xxl-6 fw-light lh-primary displayStart">
                       General Enquiry
                       </dt>
-                      <dd className="col-7 col-lg-7 col-xxl-6 fw-light lh-primary">
+                      <dd className="col-7 col-lg-7 col-xxl-6 fw-light lh-primary displayStart">
                         <span>:</span>
                         <a
                           className="footer_link__jfCKV"
@@ -165,10 +165,10 @@ const Footer = () => {
                       {/* Add more contact information here */}
                     </dl>
                     <dl className="row g-1">
-                      <dt className="col-5 col-lg-5 col-xxl-6 fw-light lh-primary">
+                      <dt className="col-5 col-lg-5 col-xxl-6 fw-light lh-primary displayStart">
                       Sales Enquiry
                       </dt>
-                      <dd className="col-7 col-lg-7 col-xxl-6 fw-light lh-primary">
+                      <dd className="col-7 col-lg-7 col-xxl-6 fw-light lh-primary displayStart">
                         <span>:</span>
                         <a
                           className="footer_link__jfCKV"
@@ -180,10 +180,10 @@ const Footer = () => {
                       {/* Add more contact information here */}
                     </dl>
                     <dl className="row g-1">
-                      <dt className="col-5 col-lg-5 col-xxl-6 fw-light lh-primary">
+                      <dt className="col-5 col-lg-5 col-xxl-6 fw-light lh-primary displayStart">
                       HR Enquiry
                       </dt>
-                      <dd className="col-7 col-lg-7 col-xxl-6 fw-light lh-primary">
+                      <dd className="col-7 col-lg-7 col-xxl-6 fw-light lh-primary displayStart">
                         <span>:</span>
                         <a
                           className="footer_link__jfCKV"
@@ -195,10 +195,10 @@ const Footer = () => {
                       {/* Add more contact information here */}
                     </dl>
                     <dl className="row g-1">
-                      <dt className="col-5 col-lg-5 col-xxl-6 fw-light lh-primary">
+                      <dt className="col-5 col-lg-5 col-xxl-6 fw-light lh-primary displayStart">
                       Whatsapp
                       </dt>
-                      <dd className="col-7 col-lg-7 col-xxl-6 fw-light lh-primary">
+                      <dd className="col-7 col-lg-7 col-xxl-6 fw-light lh-primary displayStart">
                         <span>:</span>
                         <a
                           className="footer_link__jfCKV"
@@ -239,7 +239,7 @@ const Footer = () => {
                   <li>
                     <a
                       target="_blank"
-                      href="https://www.linkedin.com/company/webandcrafts/"
+                      href="/"
                     >
                       <img
                         alt="linkedin.svg"
@@ -249,6 +249,91 @@ const Footer = () => {
                         decoding="async"
                         data-nimg="1"
                         src="https://admin.wac.co/uploads/linkedin_afb211c6b4.svg"
+                        style={{ color: "transparent" }}
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      href="/"
+                    >
+                      <img
+                        alt="linkedin.svg"
+                        loading="lazy"
+                        width="30"
+                        height="25"
+                        decoding="async"
+                        data-nimg="1"
+                        src="https://admin.wac.co/uploads/youtube_f40a433a78.svg"
+                        style={{ color: "transparent" }}
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      href="/"
+                    >
+                      <img
+                        alt="linkedin.svg"
+                        loading="lazy"
+                        width="30"
+                        height="25"
+                        decoding="async"
+                        data-nimg="1"
+                        src="https://admin.wac.co/uploads/instagram_8d8e30ada5.svg"
+                        style={{ color: "transparent" }}
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      href="/"
+                    >
+                      <img
+                        alt="linkedin.svg"
+                        loading="lazy"
+                        width="30"
+                        height="25"
+                        decoding="async"
+                        data-nimg="1"
+                        src="https://admin.wac.co/uploads/facebook_eed590c443.svg"
+                        style={{ color: "transparent" }}
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      href="/"
+                    >
+                      <img
+                        alt="linkedin.svg"
+                        loading="lazy"
+                        width="30"
+                        height="25"
+                        decoding="async"
+                        data-nimg="1"
+                        src="https://admin.wac.co/uploads/dribble_c58cf913df.svg"
+                        style={{ color: "transparent" }}
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      href="/"
+                    >
+                      <img
+                        alt="linkedin.svg"
+                        loading="lazy"
+                        width="30"
+                        height="25"
+                        decoding="async"
+                        data-nimg="1"
+                        src="https://admin.wac.co/uploads/behance_989e2e7177.svg"
                         style={{ color: "transparent" }}
                       />
                     </a>

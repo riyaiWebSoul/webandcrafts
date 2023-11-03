@@ -52,7 +52,7 @@ function ServiceListing() {
       <div className="container">
         <div className="undefined">
           <div className="ServiceListing_heading__N5Nsc">
-            <h2 className="ttl-80 mb-2 mb-lg-5 fw-regular">Services</h2>
+            <h2 className="ttl-80 mb-2 mb-lg-5 fw-regular displayStart">Services</h2>
           </div>
           <div className="row row-cols-md-2 row-cols-xl-3 g-3 g-lg-4 g-xxl-5">
             {services.map((service, index) => (

@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import logo from '../assets/images/logo_images/logo1.svg'
 // import logo from 'logo1.svg'
 
 function Header() {
+  const [headerActive, setHeaderActive] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const scrollThreshold = 0.1; // 10%
+
+      if (scrollPosition >= windowHeight * scrollThreshold) {
+        setHeaderActive(true);
+      } else {
+        setHeaderActive(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <header
-      className="header_header__ts5le header  header_active__vmyFQ   header_over__okbNt"
+    className={` ${headerActive ? " header_header__ts5le header  header_active__vmyFQ    " : "header_header__ts5le header       "} `}
       style={{"translate": "none", "rotate": "none", "scale": "none", "transform": "translate3d (0px, 0px, 0px)"}}
     >
       <div className="container">
@@ -69,7 +91,7 @@ function Header() {
                     height="20"
                     viewBox="0 0 1017 1024"
                     xmlns="http://www.w3.org/2000/svg"
-                    style={{"display": "inline-block","vertical-align": "middle"}}
+                    style={{"display": "inline-block","verticalAlign": "middle"}}
                   >
                     <path
                       d="M436.447 95.576c-188.232 0-340.824 152.592-340.824 340.824s152.592 340.824 340.824 340.824c188.232 0 340.824-152.592 340.824-340.824v0c-0.218-188.144-152.68-340.606-340.803-340.824l-0.020-0zM436.447 0c241.017 0 436.399 195.383 436.399 436.399s-195.383 436.399-436.399 436.399c-241.017 0-436.399-195.383-436.399-436.399v0c0-241.017 195.383-436.399 436.399-436.399v0z"
@@ -95,7 +117,7 @@ function Header() {
                       height="20"
                       viewBox="0 0 786 1024"
                       xmlns="http://www.w3.org/2000/svg"
-                      style={{"display": "inline-block", "vertical-align": "middle"}}
+                      style={{"display": "inline-block", "verticalAlign": "middle"}}
                     >
                       <path
                         d="M785.504 1024.051l-392.575-280.526-392.93 280.526v-884.624c0.058-76.98 62.447-139.369 139.421-139.427l506.758-0c76.937 0.115 139.268 62.482 139.325 139.421l0 0.005zM392.93 650.032l316.676 226.226v-736.832c0-0 0-0 0-0 0-35.001-28.374-63.376-63.376-63.376-0.036 0-0.071 0-0.107 0l0.005-0h-506.702c-35.001 0-63.376 28.374-63.376 63.376v0 736.832z"

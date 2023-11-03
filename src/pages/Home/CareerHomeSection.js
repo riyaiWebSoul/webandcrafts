@@ -1,7 +1,13 @@
-import React from 'react';
-import thumb from '../../assets/images/WAC_09109_d0d9d60230.jpg';
+import React, { useState, useEffect } from 'react';
+import CareerHomeSectionImages from '../../utls/CareerHomeSectionImages';
 
 function CareerHomeSection() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imageTransitioning, setImageTransitioning] = useState(false);
+
+  const [ teamImage1,teamImage2,teamImage3,teamImage4,teamImage5,teamImage6,teamImage7,teamImage8,teamImage9,teamImage10,teamImage11,teamImage12]=CareerHomeSectionImages()
+
+  const arrayImage=[teamImage1,teamImage2,teamImage3,teamImage4,teamImage5,teamImage6,teamImage7,teamImage8,teamImage9,teamImage10,teamImage11,teamImage12]
   const imageStyle = {
     position: 'absolute',
     height: '100%',
@@ -14,7 +20,26 @@ function CareerHomeSection() {
     display: 'block',
     objectFit: 'contain',
     objectPosition: '50% 50%',
+    top: imageTransitioning ? '0' : '-20%',
+    transition: 'top 2s ease-out-in', // Adjust the duration and easing for the slide effect
   };
+
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setImageTransitioning(true);
+      setTimeout(() => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % arrayImage.length);
+        setImageTransitioning(false);
+      }, 1000); // Change the image after 1 second
+    }, 2000); // Start the transition every 2 seconds
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [arrayImage]);
+
+
 
   return (
     <section className="careerHome_section__7zGs0" id="teamImageSliderComponent">
@@ -53,17 +78,27 @@ function CareerHomeSection() {
             <div className="careerHome_Anim_wrapper__vCOCO">
               <div className="careerHome_image_anim_wrapper__hFer9">
                 <div className="careerHome_image_anim_items__mGXER careerHome_active__PZnvb">
-                  <div className="careerHome_image_wrapper__f9PiO">
-                    <img
-                      alt="team image"
-                      loading="lazy"
-                      decoding="async"
-                      data-nimg="fill"
-                      sizes="(max-width: 768px) 80vw, (max-width: 1200px) 100vw, 30vw"
-                      src={thumb}
-                      style={imageStyle}
-                    />
-                  </div>
+                <div className="careerHome_image_wrapper__f9PiO" style={{ overflow: 'hidden', position: 'relative' }}>
+        <img
+          alt="team image"
+          loading="lazy"
+          decoding="async"
+          data-nimg="fill"
+          sizes="(max-width: 768px) 80vw, (max-width: 1200px) 100vw, 30vw"
+          srcSet={`
+            ${arrayImage[currentImageIndex]} 640w,
+            ${arrayImage[currentImageIndex]} 750w,
+            ${arrayImage[currentImageIndex]} 828w,
+            ${arrayImage[currentImageIndex]} 1080w,
+            ${arrayImage[currentImageIndex]} 1200w,
+            ${arrayImage[currentImageIndex]} 1920w,
+            ${arrayImage[currentImageIndex]} 2048w,
+            ${arrayImage[currentImageIndex]} 4500w
+          `}
+          src={arrayImage[currentImageIndex]}
+          style={imageStyle}
+        />
+      </div>
                 </div>
               </div>
             </div>

@@ -21,7 +21,7 @@ function ImageCard({item}) {
 
 
   return (
-    <div className='undefined'>
+    <div className='undefined' >
       <div className='workCard_listing_card__t_T6i  false   '>
         <span>
           <a target='_blank' className='workCard_image__OUzWj ratio ratio-1' style={{ '--aspect-ratio': '100%' }} href='works/lulu-hypermarket.html'>
@@ -64,8 +64,8 @@ function ImageCard({item}) {
                 <button className='undefined'>{item.title}</button>
               </div>
             </h3>
-            <h4 className='workCard_title__CmBr9 mb-0'>
-              <a target='_blank' className='lh-title-sub fw-light' href='works/lulu-hypermarket.html'>
+            <h4 className='workCard_title__CmBr9 mb-0 displayStart'>
+              <a target='_blank' className='lh-title-sub fw-light displayStart' href='works/lulu-hypermarket.html'>
            {item.bodyText}
               </a>
             </h4>

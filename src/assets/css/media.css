@@ -12717,3 +12717,10 @@
     object-fit: cover;
     object-position: center
 }
+.undefined{
+    display: block;
+}
+.displayStart{
+    display: flex;
+    text-align: initial;
+}

@@ -16,8 +16,8 @@ function ServiceItem({ title, description, imageUrl, link }) {
             />
           </div>
           <div className="listingCard_context_wrapper__ihkvq">
-            <h3 className="listingCard_title__ufYqF fw-regular">{title}</h3>
-            <p className="listingCard_description__Q5VTW fs-18 mb-2 mb-lg-3 lh-primary">{description}</p>
+            <h3 className="listingCard_title__ufYqF fw-regular displayStart">{title}</h3>
+            <p className="listingCard_description__Q5VTW fs-18 mb-2 mb-lg-3 lh-primary displayStart">{description}</p>
             <a aria-label={`Learn more about ${title}`} className="btn btn-secondary stretched-link" href={link}>
               Learn more <span className="listingCard_screen_reader__Ml_9f">about {title}</span>
             </a>

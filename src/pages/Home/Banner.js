@@ -1,10 +1,12 @@
+import bannerVideo from '../../assets/video/video (720p).mp4'
+
 function Banner() {
   return (
     <div>
       <section className="newBanner_section__VlZZ_" id="case_study_slider1">
         <div
           className="newBanner_start__JV_Rl carousel slide carousel-fade"
-          style={{ opacity: "0.3947" }}
+          style={{ opacity: "0.7947" }}
         >
           <div className="carousel-inner">
             <div draggable="true" className="active carousel-item">
@@ -17,7 +19,7 @@ function Banner() {
                       decoding="async"
                       data-nimg="fill"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-                      srcset="/_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=640&amp;q=90 640w, /_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=750&amp;q=90 750w, /_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=828&amp;q=90 828w, /_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=1080&amp;q=90 1080w, /_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=1200&amp;q=90 1200w, /_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=1920&amp;q=90 1920w, /_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=2048&amp;q=90 2048w, /_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=4500&amp;q=90 4500w"
+                      srcSet="/_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=640&amp;q=90 640w, /_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=750&amp;q=90 750w, /_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=828&amp;q=90 828w, /_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=1080&amp;q=90 1080w, /_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=1200&amp;q=90 1200w, /_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=1920&amp;q=90 1920w, /_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=2048&amp;q=90 2048w, /_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=4500&amp;q=90 4500w"
                       src="/_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=4500&amp;q=90"
                       style={{
                         position: "absolute",
@@ -29,10 +31,10 @@ function Banner() {
                     />
                     <video
                       dataimage="https://admin.wac.co/uploads/Comp_1_00000_30b007ccaa.png"
-                      loop=""
-                      autoplay=""
-                      playsinline=""
-                      src="blob:https://webandcrafts.com/39ae83a2-cebb-49b1-903b-892e16b880e7"
+                      loop={true}
+                      autoPlay={true}
+                      playsInline=""
+                      src={bannerVideo}
                       style={{
                         translate: "none",
                         rotate: "none",
@@ -63,7 +65,9 @@ function Banner() {
                 <div className="newBanner_banner_inner__B_pMf newBanner_full__kYor7">
                   <div className="container">
                     <div className="newBanner_content__7v3dH">
-                      <h1 className="newBanner_title__9Vl15 newBanner_anim__UjgCO  ttl-80 fw-light">
+                      <h1 className="newBanner_title__9Vl15 newBanner_anim__UjgCO  ttl-80 fw-light" 
+                      style={{"textAlign": "initial"
+                  }}>
                         Digital Marks the Future and We Build It!
                       </h1>
                       <a className="newBanner_navigate_btn__9VKft" href="works">
@@ -77,7 +81,7 @@ function Banner() {
                             xmlns="http://www.w3.org/2000/svg"
                             style={{
                               display: "inline-block",
-                              "vertical-align": "middle",
+                              "verticalAlign": "middle",
                             }}
                           >
                             <path
@@ -100,7 +104,7 @@ function Banner() {
           <a
             className="carousel-control-prev"
             role="button"
-            tabindex="0"
+            tabIndex="0"
             href="#"
           >
             <span
@@ -112,7 +116,7 @@ function Banner() {
           <a
             className="carousel-control-next"
             role="button"
-            tabindex="0"
+            tabIndex="0"
             href="#"
           >
             <span
@@ -159,7 +163,7 @@ function Banner() {
                 <span className="ms-1">
                   <svg
                     className=""
-                    style={{"display":"inline-block","vertical-align":"middle"}}
+                    style={{"display":"inline-block","verticalAlign":"middle"}}
                     width="15"
                     height="15"
                     viewBox="0 0 1538 1024"
@@ -195,7 +199,7 @@ function Banner() {
                 <span className="ms-1">
                   <svg
                     className=""
-                    style={{"display":"inline-block","vertical-align":"middle"}}
+                    style={{"display":"inline-block","verticalAlign":"middle"}}
                     width="15"
                     height="15"
                     viewBox="0 0 1538 1024"
@@ -231,7 +235,7 @@ function Banner() {
                 <span className="ms-1">
                   <svg
                     className=""
-                    style={{"display":"inline-block","vertical-align":"middle"}}
+                    style={{"display":"inline-block","verticalAlign":"middle"}}
                     width="15"
                     height="15"
                     viewBox="0 0 1538 1024"
