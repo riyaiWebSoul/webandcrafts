@@ -2,6 +2,7 @@ import React from "react";
 import aiImage from "../../assets/images/AI_Chat_Open_Assistant_Chatbot_Creating_Breakthroughs_in_Tech_Driven_Businesses_5cf51c2a75.avif";
 import aiImage1 from "../../assets/images/Top_Advantages_Disadvantages_and_Limitations_of_Ecommerce_A_Complete_Guide_9f7ce4a36a.avif";
 import aiImage2 from "../../assets/images/DSC_09058_2ceec90ced.avif";
+import BlogCard from "../../common/BlogCard";
 
 const BlogSection = () => {
   const data = [
@@ -50,7 +51,7 @@ const BlogSection = () => {
           Insights
         </h2>
         <div class="row  row-cols-lg-3 BlogInsights_row__jNVK_">
-         {data.map(item=><BlogSection item={item}/>)}
+         {data.map(item=><BlogCard item={item}/>)}
         
          
         </div>
