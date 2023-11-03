@@ -1,4 +1,6 @@
+
 import bannerVideo from '../../assets/video/video (720p).mp4'
+import bannerImage from '../../assets/images/banner_image.avif'
 
 function Banner() {
   return (
@@ -19,8 +21,8 @@ function Banner() {
                       decoding="async"
                       data-nimg="fill"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-                      srcSet="/_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=640&amp;q=90 640w, /_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=750&amp;q=90 750w, /_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=828&amp;q=90 828w, /_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=1080&amp;q=90 1080w, /_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=1200&amp;q=90 1200w, /_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=1920&amp;q=90 1920w, /_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=2048&amp;q=90 2048w, /_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=4500&amp;q=90 4500w"
-                      src="/_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FComp_1_00000_30b007ccaa.png&amp;w=4500&amp;q=90"
+                      // srcSet={bannerImage}
+                      // src={bannerImage}
                       style={{
                         position: "absolute",
                         height: "100%",
@@ -30,10 +32,11 @@ function Banner() {
                       }}
                     />
                     <video
-                      dataimage="https://admin.wac.co/uploads/Comp_1_00000_30b007ccaa.png"
+                    
+                      datamage={bannerImage}
                       loop={true}
                       autoPlay={true}
-                      playsInline=""
+                      
                       src={bannerVideo}
                       style={{
                         translate: "none",

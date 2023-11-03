@@ -14,6 +14,7 @@ import OurStoryComponent from './pages/Home/OurStoryComponent';
 import ServiceListing from './pages/Home/ServiceListing';
 import CareerHomeSection from './pages/Home/CareerHomeSection';
 import Footer from './pages/Footer';
+import BlogSection from './pages/Home/BlogSection';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
    <ServiceListing/>
    <ClientSection/>
    <CareerHomeSection/>
+   <BlogSection/>
    <Footer/>
    
   

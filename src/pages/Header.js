@@ -27,7 +27,7 @@ function Header() {
   }, []);
   return (
     <header
-    className={` ${headerActive ? " header_header__ts5le header  header_active__vmyFQ    " : "header_header__ts5le header       "} `}
+    className={` ${headerActive ? " header_header__ts5le header  header_active__vmyFQ    " : "header_header__ts5le header  header_active__vmyFQ   header_over__okbNt     "} header_header__ts5le header     `}
       style={{"translate": "none", "rotate": "none", "scale": "none", "transform": "translate3d (0px, 0px, 0px)"}}
     >
       <div className="container">

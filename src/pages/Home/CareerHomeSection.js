@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CareerHomeSectionImages from '../../utls/CareerHomeSectionImages';
+import  joinTeam from '../../assets/images/join-team.png'
 
 function CareerHomeSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -20,7 +21,7 @@ function CareerHomeSection() {
     display: 'block',
     objectFit: 'contain',
     objectPosition: '50% 50%',
-    top: imageTransitioning ? '0' : '-20%',
+    top: imageTransitioning ? '0' : '0%',
     transition: 'top 2s ease-out-in', // Adjust the duration and easing for the slide effect
   };
 
@@ -48,7 +49,7 @@ function CareerHomeSection() {
           <div className="col-lg-7">
             <div className="careerHome_content_wrapper__zC8q8">
               <div className="d-none d-sm-block w-100">
-                <h3 className="careerHome_title__Exoec ttl-100 fw-light text-center text-lg-start">You Will Like It Here!</h3>
+                <h3 className="careerHome_title__Exoec ttl-100 fw-light text-center text-lg-start displayStart">You Will Like It Here!</h3>
               </div>
               <p className="careerHome_description__8pUSx fs-24 fw-light">
                 At WAC, we are all about creating a habitat that lets you grow stronger roots and larger branches. Together let’s make a fruitful journey!
@@ -73,7 +74,7 @@ function CareerHomeSection() {
           </div>
           <div className="col-lg-5">
             <div className="d-sm-none mb-3">
-              <h3 className="careerHome_title__Exoec ttl-100 fw-light ">You Will Like It Here!</h3>
+              <h3 className="careerHome_title__Exoec ttl-100 fw-light displayStart ">You Will Like It Here!</h3>
             </div>
             <div className="careerHome_Anim_wrapper__vCOCO">
               <div className="careerHome_image_anim_wrapper__hFer9">
@@ -101,6 +102,13 @@ function CareerHomeSection() {
       </div>
                 </div>
               </div>
+              <div class="careerHome_image_rotate__GLN6l">
+                <img alt="text with spinning animation" 
+                loading="lazy" decoding="async" data-nimg="fill" 
+                style={{"position":"absolute","height":"100%","width":"100%","left":"0","top":"0","right":"0","bottom":"0","color":"transparent"}} 
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw" 
+                // srcSet="_next/image-url-/image/home/career/join-team.png 640w, _next/image-url-/image/home/career/join-team.png 750w, _next/image-url-/image/home/career/join-team.png 828w, _next/image-url-/image/home/career/join-team.png 1080w, _next/image-url-/image/home/career/join-team.png 1200w, _next/image-url-/image/home/career/join-team.png 1920w, _next/image-url-/image/home/career/join-team.png 2048w, _next/image-url-/image/home/career/join-team.png 4500w"
+               src={joinTeam}/></div>
             </div>
           </div>
         </div>
