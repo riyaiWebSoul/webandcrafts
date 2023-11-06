@@ -53,18 +53,18 @@ function SectionTest() {
 
   return (
     <div className="desing" ref={app}>
+    
       <div
         id="designSection"
         ref={designSection}
         className=" align-items-baseline"
-        style={{ display: "none" }}
+        
       >
         <Box>
           <h1 className="text-light  text-center fst-normal fw-xl-light ">
             Design
           </h1>
-        </Box>
-        <video
+          <video
           className="videoDesign"
           width="200px"
           height="100px"
@@ -75,9 +75,8 @@ function SectionTest() {
         >
           <source src={butterflyVideo} type="video/mp4"></source>
         </video>
-      </div>
-
-      <p className="p text-light text-center">
+        </Box>
+        <p className="p text-light text-center">
         Intelligent design is the essence <br /> of nature; that’s our
         inspiration <br /> in crafting tomorrow’s tech realm.
       </p>
@@ -103,6 +102,9 @@ function SectionTest() {
           </svg>
         </span>
       </a>
+      </div>
+
+     
     </div>
   );
 }
