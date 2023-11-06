@@ -46,3 +46,41 @@ font-family: 'Taviraj', serif;
     transform: rotate(360deg);
   }
 }
+
+#textSection {
+  background-color: black;
+  color: #898989;
+
+}
+ 
+#quote{
+  font-size:44px;
+  line-height:50px;
+  color:#dedede;
+}
+#designSection{
+  background-color: black;
+  color: #898989;
+}
+
+
+ 
+
+.desing {
+  width: 100%;
+  height: 100vh; /* Make the container taller to enable scrolling */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+
+.videoDesign{  position: absolute;
+  top: 0;
+  margin-left: 85px;}
+  
+.designText{
+  font-size: 140px;
+}

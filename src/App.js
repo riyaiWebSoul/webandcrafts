@@ -14,12 +14,21 @@ import ServiceListing from "./pages/Home/ServiceListing";
 import CareerHomeSection from "./pages/Home/CareerHomeSection";
 import Footer from "./pages/Footer";
 import BlogSection from "./pages/Home/BlogSection";
+import Section from "./pages/Home/Section";
+import Design from "./pages/Home/Design";
+import HomeDesignAnimation from "./pages/Home/HomeDesignAnimation";
+import SectionTest from "./pages/Home/SectionTest";
 
 function App() {
   return (
     <div className="App">
       <Header />
       <Banner />
+      <Section/>
+      <SectionTest/>
+      {/* <HomeDesignAnimation/> */}
+    
+      {/* <Design/> */}
       <WorkListingSection />
       <OurStoryComponent />
       <ServiceListing />

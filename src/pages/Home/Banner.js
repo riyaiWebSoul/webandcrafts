@@ -1,6 +1,7 @@
 
 import bannerVideo from '../../assets/video/video (720p).mp4'
 import bannerImage from '../../assets/images/banner_image.avif'
+import Section from './Section';
 
 function Banner() {
   return (
@@ -145,116 +146,6 @@ function Banner() {
             <div className="newBanner_arrow_wrapper_inner__ndPBv">
               <div className="newBanner_arrow_left__LOpAw"></div>
               <div className="newBanner_arrow_right__DCKmb"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="homeDesignWrap_section_mobile__kwRzO">
-        <div className="homeServiceIntro_section__AUTC1 position-relative ">
-          <div className="container">
-            <div className="homeServiceIntro_section_wrap__djDIC">
-              <h3 className="homeServiceIntro_title__SmV89">Design</h3>
-              <p className="homeServiceIntro_description__uebQ1">
-                Intelligent design is the essence of nature; that’s our
-                inspiration in crafting tomorrow’s tech realm.
-              </p>
-              <a
-                className="homeServiceIntro_section_link__7oV5u stretched-link"
-                href="/"
-              >
-                <span>Learn More</span>
-                <span className="ms-1">
-                  <svg
-                    className=""
-                    style={{"display":"inline-block","verticalAlign":"middle"}}
-                    width="15"
-                    height="15"
-                    viewBox="0 0 1538 1024"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      style={{"fill":"#fff"}}
-                      d="M1006.294 1024l-67.791-70.432 458.589-441.568-458.687-441.568 67.791-70.432 531.956 512z"
-                    ></path>
-                    <path
-                     style={{"fill":"#fff"}}
-                      d="M1467.329 560.813h-1467.329v-97.822h1467.329z"
-                    ></path>
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="homeServiceIntro_section__AUTC1 position-relative ">
-          <div className="container">
-            <div className="homeServiceIntro_section_wrap__djDIC">
-              <h3 className="homeServiceIntro_title__SmV89">Build</h3>
-              <p className="homeServiceIntro_description__uebQ1">
-                Constantly adopting cutting edge technology for your enterprise
-                to harness its endless possibilities and leave a global imprint.
-              </p>
-              <a
-                className="homeServiceIntro_section_link__7oV5u stretched-link"
-                href="services/technology.html"
-              >
-                <span>Learn More</span>
-                <span className="ms-1">
-                  <svg
-                    className=""
-                    style={{"display":"inline-block","verticalAlign":"middle"}}
-                    width="15"
-                    height="15"
-                    viewBox="0 0 1538 1024"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                    style={{"fill":"#fff"}}
-                      d="M1006.294 1024l-67.791-70.432 458.589-441.568-458.687-441.568 67.791-70.432 531.956 512z"
-                    ></path>
-                    <path
-                    style={{"fill":"#fff"}}
-                      d="M1467.329 560.813h-1467.329v-97.822h1467.329z"
-                    ></path>
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="homeServiceIntro_section__AUTC1 position-relative ">
-          <div className="container">
-            <div className="homeServiceIntro_section_wrap__djDIC">
-              <h3 className="homeServiceIntro_title__SmV89">Market</h3>
-              <p className="homeServiceIntro_description__uebQ1">
-                Experts in solving the WHY, WHERE and HOW of propelling your
-                business to new frontiers.
-              </p>
-              <a
-                className="homeServiceIntro_section_link__7oV5u stretched-link"
-                href="services/digital-marketing.html"
-              >
-                <span>Learn More</span>
-                <span className="ms-1">
-                  <svg
-                    className=""
-                    style={{"display":"inline-block","verticalAlign":"middle"}}
-                    width="15"
-                    height="15"
-                    viewBox="0 0 1538 1024"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                     style={{"fill":"#fff"}}
-                      d="M1006.294 1024l-67.791-70.432 458.589-441.568-458.687-441.568 67.791-70.432 531.956 512z"
-                    ></path>
-                    <path
-                      style={{"fill":"#fff"}}
-                      d="M1467.329 560.813h-1467.329v-97.822h1467.329z"
-                    ></path>
-                  </svg>
-                </span>
-              </a>
             </div>
           </div>
         </div>
