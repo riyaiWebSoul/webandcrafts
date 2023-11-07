@@ -9,7 +9,7 @@ function Header() {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
-      const scrollThreshold = 0.1; // 10%
+      const scrollThreshold = 5.3; // 10%
 
       if (scrollPosition >= windowHeight * scrollThreshold) {
         setHeaderActive(true);

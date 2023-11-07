@@ -1,12 +1,48 @@
-
-import bannerVideo from '../../assets/video/video (720p).mp4'
-import bannerImage from '../../assets/images/banner_image.avif'
-import Section from './Section';
+import bannerVideo from "../../assets/video/banner_video.mp4";
+import bannerImage from "../../assets/images/banner_image.avif";
+import Section from "./Section";
+import { useState, useEffect,useRef } from "react";
 
 function Banner() {
+  const [mutedButton, setMutedButton] = useState(true);
+  const [opacity, setOpacity] = useState(1);
+
+  const handelMute = () => {
+    mutedButton ? setMutedButton(false):setMutedButton(true)
+  };
+
+    const videoRef = useRef(null);
+    const startTime = 0; // Set the start time in seconds
+  
+    useEffect(() => {
+      if (videoRef.current) {
+        videoRef.current.currentTime = startTime;
+      }
+      const handleScroll = () => {
+        const scrollY = window.scrollY;
+        const viewportHeight = window.innerHeight;
+        const threshold = 0.4; // You can adjust this value if needed
+  
+        if (scrollY >= viewportHeight * threshold) {
+          setOpacity(0);
+        } else {
+          setOpacity(1);
+        }
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
+  
   return (
-    <div>
-      <section className="newBanner_section__VlZZ_" id="case_study_slider1">
+    <div className="bg-dark">
+ <section className="newBanner_section__VlZZ_" id="case_study_slider1"  style={{
+        opacity,
+        transition: 'opacity 0.3s', // You can adjust the transition duration
+      }}>
         <div
           className="newBanner_start__JV_Rl carousel slide carousel-fade"
           style={{ opacity: "0.7947" }}
@@ -22,8 +58,8 @@ function Banner() {
                       decoding="async"
                       data-nimg="fill"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-                      // srcSet={bannerImage}
-                      // src={bannerImage}
+                      srcSet={bannerImage}
+                      src={bannerImage}
                       style={{
                         position: "absolute",
                         height: "100%",
@@ -33,25 +69,28 @@ function Banner() {
                       }}
                     />
                     <video
-                    
                       datamage={bannerImage}
-                      loop={true}
-                      autoPlay={true}
                       
-                      src={bannerVideo}
+                      loop={true}
+                      autoPlay
+                      muted={mutedButton}
+                      
                       style={{
                         translate: "none",
                         rotate: "none",
                         scale: "none",
                         transform: "translate3d(0px, 0px, 0px)",
                       }}
-                    ></video>
+                    >
+                      <source  src={bannerVideo}/>
+                    </video>
                   </div>
                   <button
                     aria-label="button for mute"
                     className="hlsVideoCard_controls_item__vol__YMqdq"
+                    onClick={handelMute}
                   >
-                    <svg
+                    {mutedButton? <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="18.855"
                       height="18.776"
@@ -63,15 +102,30 @@ function Banner() {
                         transform="translate(15047.041 -12268.507)"
                         fill="#fff"
                       ></path>
-                    </svg>
+                    </svg>:<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20.118"
+                    height="18.776"
+                    viewBox="0 0 20.118 18.776"
+                  >
+                    <path
+                      id="icon-vol"
+                      d="M5.193,13.694H.931A.933.933,0,0,1,0,12.763V6.634A.931.931,0,0,1,.931,5.7H5.177L12.144,0l.816.387V18.372l-.795.4Zm.663-7.258v6.5l6.1,4.45V1.442ZM1,12.694H4.855V6.7H1Zm15.644,1.779a6.955,6.955,0,0,0,.249-10.418l.68-.734a7.955,7.955,0,0,1-.285,11.916Zm-1.914-1.739a4.743,4.743,0,0,0-.035-6.744l.7-.715a5.744,5.744,0,0,1,.043,8.166Z"
+                      transform="translate(0)"
+                      fill="#fff"
+                    ></path>
+                  </svg>}
+                   
                   </button>
+                  
                 </div>
                 <div className="newBanner_banner_inner__B_pMf newBanner_full__kYor7">
                   <div className="container">
                     <div className="newBanner_content__7v3dH">
-                      <h1 className="newBanner_title__9Vl15 newBanner_anim__UjgCO  ttl-80 fw-light" 
-                      style={{"textAlign": "initial"
-                  }}>
+                      <h1
+                        className="newBanner_title__9Vl15 newBanner_anim__UjgCO  ttl-80 fw-light"
+                        style={{ textAlign: "initial" }}
+                      >
                         Digital Marks the Future and We Build It!
                       </h1>
                       <a className="newBanner_navigate_btn__9VKft" href="works">
@@ -85,7 +139,7 @@ function Banner() {
                             xmlns="http://www.w3.org/2000/svg"
                             style={{
                               display: "inline-block",
-                              "verticalAlign": "middle",
+                              verticalAlign: "middle",
                             }}
                           >
                             <path
@@ -105,52 +159,13 @@ function Banner() {
               </div>
             </div>
           </div>
-          <a
-            className="carousel-control-prev"
-            role="button"
-            tabIndex="0"
-            href="#"
-          >
-            <span
-              aria-hidden="true"
-              className="carousel-control-prev-icon"
-            ></span>
-            <span className="visually-hidden">Previous</span>
-          </a>
-          <a
-            className="carousel-control-next"
-            role="button"
-            tabIndex="0"
-            href="#"
-          >
-            <span
-              aria-hidden="true"
-              className="carousel-control-next-icon"
-            ></span>
-            <span className="visually-hidden">Next</span>
-          </a>
+           
         </div>
-        <button className="carousel-next">Left</button>
-        <button className="carousel-prev">Right</button>
-        <div
-          className="newBanner_mouseMove__8yFgF"
-          style={{
-            translate: "none",
-            rotate: "none",
-            scale: "none",
-            transform:
-              "translate(-50%, -50%) translate3d(245px, 683px, 0px) scale(0.7, 0.7)",
-          }}
-        >
-          <div className="newBanner_arrow_wrapper__NqRK8">
-            <div className="newBanner_arrow_wrapper_inner__ndPBv">
-              <div className="newBanner_arrow_left__LOpAw"></div>
-              <div className="newBanner_arrow_right__DCKmb"></div>
-            </div>
-          </div>
-        </div>
+         
       </section>
     </div>
+     
+  
   );
 }
 

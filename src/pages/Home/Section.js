@@ -10,8 +10,6 @@ const Section = () => {
         gsap.registerPlugin(ScrollTrigger);
         let ctx = gsap.context(() => {
             let split = new SplitType(".bodyText h1", { types: 'chars' });
-
-            // Initial color setting
             gsap.set(split.chars, {
                 color: "gray",
             });
@@ -19,10 +17,10 @@ const Section = () => {
             gsap.timeline({
                 scrollTrigger: {
                     trigger: "#textSection",
-                    start: "top top",
-                    end: "+=150%",
+                    start: "*-=10%",
+                    end: "-=150%",
                     pin: true,
-                    scrub: 0.75,
+                    scrub: 5,
                     markers: true,
                 }
             }).to(split.chars, {
@@ -36,6 +34,9 @@ const Section = () => {
 
         return () => ctx.revert(); // useLayoutEffect cleanup
     }, []);
+
+
+    
 
     return (
         <>

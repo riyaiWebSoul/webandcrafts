@@ -50,7 +50,6 @@ font-family: 'Taviraj', serif;
 #textSection {
   background-color: black;
   color: #898989;
-
 }
  
 #quote{
@@ -61,6 +60,7 @@ font-family: 'Taviraj', serif;
 #designSection{
   background-color: black;
   color: #898989;
+  height: 100vh;
 }
 
 
@@ -68,19 +68,69 @@ font-family: 'Taviraj', serif;
 
 .desing {
   width: 100%;
-  height: 100vh; /* Make the container taller to enable scrolling */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: black;
+
 }
 
 
-.videoDesign{  position: absolute;
-  top: 0;
-  margin-left: 85px;}
-  
+ 
 .designText{
   font-size: 140px;
+}
+
+.designSectionFontSize {
+  font-size: 9.666rem;
+  z-index: 999;
+  font-weight: 100;
+}
+
+
+.designSectionBodyTextStyle{
+  line-height: 1.6666666667;
+  font-size: 1.2222222222rem;
+  text-align: left !important;
+}
+.videoDesign{
+  scale: 3;
+  position: absolute;
+}
+.desingSectionContant{
+  height: 100vh;
+  filter: blur(.5px);
+  position: relative;
+}
+.desingSectionAnchore{
+  margin-left: 25px;
+}
+.buildDivStyle{
+  position: absolute;
+}
+.gsap-marker-scroller-start{
+  display: none !important;
+}
+
+.gsap-marker-scroller-end {
+  display: none !important;
+}
+.gsap-marker-end{
+  display: none !important;
+}
+/* Add these styles to your CSS file or use inline styles */
+
+.flySection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1; /* The flySection will be on top */
+}
+
+.buildSection,
+.marketSection {
+  position: relative;
+  z-index: 2; /* These sections will be behind the flySection */
 }
