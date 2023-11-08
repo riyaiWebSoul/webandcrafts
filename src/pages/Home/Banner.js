@@ -6,43 +6,51 @@ import { useState, useEffect,useRef } from "react";
 function Banner() {
   const [mutedButton, setMutedButton] = useState(true);
   const [opacity, setOpacity] = useState(1);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
 
   const handelMute = () => {
-    mutedButton ? setMutedButton(false):setMutedButton(true)
+    setMutedButton((prevMuted) => !prevMuted);
   };
 
-    const videoRef = useRef(null);
-    const startTime = 0; // Set the start time in seconds
-  
-    useEffect(() => {
-      if (videoRef.current) {
-        videoRef.current.currentTime = startTime;
+  const videoRef = useRef(null);
+  const startTime = 0; // Set the start time in seconds
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = startTime;
+    }
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      const threshold = 0.4; // You can adjust this value if needed
+
+      if (scrollY >= viewportHeight * threshold) {
+        setOpacity(0);
+        // When the video becomes visible, set shouldLoadVideo to true
+        setShouldLoadVideo(true);
+      } else {
+        setOpacity(1);
       }
-      const handleScroll = () => {
-        const scrollY = window.scrollY;
-        const viewportHeight = window.innerHeight;
-        const threshold = 0.4; // You can adjust this value if needed
-  
-        if (scrollY >= viewportHeight * threshold) {
-          setOpacity(0);
-        } else {
-          setOpacity(1);
-        }
-      };
-  
-      window.addEventListener('scroll', handleScroll);
-  
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }, []);
-  
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="bg-dark">
- <section className="newBanner_section__VlZZ_" id="case_study_slider1"  style={{
-        opacity,
-        transition: 'opacity 0.3s', // You can adjust the transition duration
-      }}>
+      <section
+        className="newBanner_section__VlZZ_"
+        id="case_study_slider1"
+        style={{
+          opacity,
+          transition: "opacity 0.3s", // You can adjust the transition duration
+        }}
+      >
         <div
           className="newBanner_start__JV_Rl carousel slide carousel-fade"
           style={{ opacity: "0.7947" }}
@@ -69,21 +77,20 @@ function Banner() {
                       }}
                     />
                     <video
-                      datamage={bannerImage}
-                      
-                      loop={true}
-                      autoPlay
-                      muted={mutedButton}
-                      
-                      style={{
-                        translate: "none",
-                        rotate: "none",
-                        scale: "none",
-                        transform: "translate3d(0px, 0px, 0px)",
-                      }}
-                    >
-                      <source  src={bannerVideo}/>
-                    </video>
+          data-image={bannerImage}
+          ref={videoRef}
+          loop={true}
+          autoPlay={true}
+          muted={mutedButton}
+          style={{
+            translate: "none",
+            rotate: "none",
+            scale: "none",
+            transform: "translate3d(0px, 0px, 0px)",
+          }}
+        >
+          {shouldLoadVideo && <source src={bannerVideo} />}
+        </video>
                   </div>
                   <button
                     aria-label="button for mute"
