@@ -18,6 +18,9 @@ import Section from "./pages/Home/Section";
 import Design from "./pages/Home/Design";
 import HomeDesignAnimation from "./pages/Home/HomeDesignAnimation";
 import SectionTest from "./pages/Home/SectionTest";
+import FlySection from "./pages/Home/FlySection";
+import BuildSection from "./pages/Home/BuildSection";
+import MarketSection from "./pages/Home/MarketSection";
 
 function App() {
   return (
@@ -25,10 +28,12 @@ function App() {
       <Header />
       <Banner />
       <Section/>
-      <SectionTest/>
+      {/* <SectionTest/> */}
       {/* <HomeDesignAnimation/> */}
-    
-      {/* <Design/> */}
+    <FlySection/>
+    <BuildSection/>
+    <MarketSection/>
+      {/* <Design/>  */}
       <WorkListingSection />
       <OurStoryComponent />
       <ServiceListing />

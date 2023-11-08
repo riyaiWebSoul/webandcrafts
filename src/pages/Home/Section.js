@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect } from 'react';
+import React, { useRef, useLayoutEffect,useEffect } from 'react';
 import { gsap } from 'gsap';
 import SplitType from 'split-type'
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -16,7 +16,7 @@ const Section = () => {
 
             gsap.timeline({
                 scrollTrigger: {
-                    trigger: "#textSection",
+                    trigger: "#textSectionDemoSection",
                     start: "*-=10%",
                     end: "-=150%",
                     pin: true,
@@ -35,13 +35,37 @@ const Section = () => {
         return () => ctx.revert(); // useLayoutEffect cleanup
     }, []);
 
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
 
+        const section = desingComponent.current;
+
+        const hideSection = () => {
+            gsap.to(section, { opacity: 0, display: 'none', duration: 0.5 });
+        };
+
+        const showSection = () => {
+            gsap.set(section, { opacity: 0, display: 'block' });
+            gsap.to(section, { opacity: 1, duration: 0.5 });
+        };
+
+        ScrollTrigger.create({
+            trigger: section,
+            start: 'top 50%', // Hide when scrolled up 60%
+            end: 'top top', // Show when scrolled down
+            onEnter: showSection,
+            onLeave: hideSection,
+            onEnterBack: showSection,
+            onLeaveBack: hideSection,
+        });
+    }, []);
     
 
     return (
-        <>
-            <section id="textSection" ref={desingComponent}>
-                <div className='container d-flex justify-content-center align-items-center' style={{ height: '100vh' }}>
+        <div className='bg-dark'>
+   <div className='container '>
+            <section id="textSectionDemoSection" ref={desingComponent}>
+                <div className='  d-flex justify-content-center align-items-center' style={{ height: '100vh' }}>
                     <div className='bodyText'>
                         <h1 className='text-start  fw-light'>
                             We believe in a world where <br />technology fosters your everyday <br /> experiences. And our mission is to <br /> make it happen!
@@ -50,7 +74,9 @@ const Section = () => {
                 </div>
             </section>
             
-        </>
+        </div>
+        </div>
+     
     );
 };
 

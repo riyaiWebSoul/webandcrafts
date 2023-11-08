@@ -1,24 +1,24 @@
 import React, { useLayoutEffect, useRef,useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import build1Video from "../../assets/video/animation/build1.mp4";
+import build1Video from "../../assets/video/animation/butterFly1.mp4";
 import SplitType from "split-type";
 
 // Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-function BuildSection() {
+function FlySection() {
   const [reversed, setReversed] = useState(false);
-  const appBuild = useRef();
-  const designSectionBuild = useRef();
+  const app = useRef();
+  const designSection = useRef();
   const ptagStyle = useRef();
-  const pstyleBuild = useRef();
+  const pstyle = useRef();
 
   useLayoutEffect(() => {
-    const elementBuild = appBuild.current;
-    const pelementBuild = pstyleBuild.current;
+    const element = app.current;
+    const pelement = pstyle.current;
     gsap.registerPlugin(ScrollTrigger);
-    let ctxBuild = gsap.context(() => {
+    let ctx = gsap.context(() => {
       let split = new SplitType(".section-title styleByGsap", {
         types: "chars",
       });
@@ -35,7 +35,7 @@ function BuildSection() {
           },
         })
         .fromTo(
-          elementBuild,
+          element,
           {
             x: "0",
             opacity: 0,
@@ -43,18 +43,20 @@ function BuildSection() {
             transform: "translate3d(-20px, 0px, 0px)",
             filter: "blur(5px)",
             visibility: "hidden",
-            padding: 5,
+            paddingBottom: 5,
+            display:'none'
           },
           {
             x: "0%",
             ease: "none",
             opacity: 1,
             duration: 1,
+            display:'block',
             letterSpacing: "0px",
             scrollTrigger: {
-              trigger: elementBuild, // Element to trigger the animation
-              start: "top bottom", // Start animation when the elementBuild is at the top of the viewport
-              end: "center center", // End animation when the elementBuild is at the center of the viewport
+              trigger: element, // Element to trigger the animation
+              start: "top bottom", // Start animation when the element is at the top of the viewport
+              end: "center center", // End animation when the element is at the center of the viewport
               scrub: true, // Animation progresses as you scroll
             },
             transform: "translate3d(0px, 0px, 0px)",
@@ -62,11 +64,12 @@ function BuildSection() {
             visibility: "inherit",
           }
         );
+        
 
       return () => split.revert(); // context cleanup
     }); // <- scopes all selector text inside the context to this component (optional, default is document)
 
-    let ptageElementBuild = gsap.context(() => {
+    let ptageElement = gsap.context(() => {
       let split = new SplitType(".section-title p", { types: "chars" });
 
       gsap
@@ -78,9 +81,11 @@ function BuildSection() {
             pin: false,
             scrub: 0.75,
             markers: true,
+           
+            transform: 'translate3d(100px, 50px, 0px) skew(0deg, 30deg)'
           },
         })
-        .to(elementBuild, {
+        .to(element, {
           x: "0",
           opacity: 0,
           letterSpacing: "-20px",
@@ -88,44 +93,44 @@ function BuildSection() {
           filter: "blur(5px)",
           visibility: "hidden",
           padding: 5,
-          scale:1
+          scale:1,
+          transform: 'translate3d(10px, 500px, 0px) skew(0deg, 3deg)'
         });
 
       return () => split.revert(); // context cleanup
     });
-    return () => ctxBuild, ptageElementBuild.revert();
+    return () => ctx, ptageElement.revert();
   }, []);
-
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const section = designSectionBuild.current;
-
+    const section = app.current;
     const hideSection = () => {
-        gsap.to(section, { opacity: 0, display: 'none', duration: 0.3 });
+      gsap.to(section, { opacity: 0, display: 'none', duration: 0.3  });
     };
 
     const showSection = () => {
-        gsap.set(section, { opacity: 1, display: 'block' });
-        gsap.to(section, { opacity: 1, duration: 0.1 });
+      // gsap.set(section, { opacity: 0, display: 'block' });
+      gsap.to(section, { opacity: 1, duration: 0.2  });
     };
 
     ScrollTrigger.create({
-        trigger: section,
-        start: 'top 10000%', // Hide when scrolled up 60%
-        end: 'top top', // Show when scrolled down
-        onEnter: showSection,
-        onLeave: hideSection,
-        onEnterBack: showSection,
-        onLeaveBack: hideSection,
+      trigger: section,
+      start: 'top 100%', // Hide when scrolled up to 70%
+      end: 'top -0%', // Show when scrolled down to 40%
+      onEnter: showSection,
+      onLeave: hideSection,
+      onEnterBack: showSection,
+      onLeaveBack: hideSection,
     });
-}, []);
+    
+  }
+  , []);
+
 
   return (
-    <div className="desing" style={{ height:"900px"}}>
+    <div className="desing" style={{ height:"500px" }}>
       <div
         id="section-title"
-        ref={designSectionBuild}
+        ref={designSection}
         className="align-items-baseline"
         style={{ textAlign: "left" }}
       >
@@ -135,9 +140,12 @@ function BuildSection() {
             style={{
               minWidth: "max-content",
               transform: "translate(-50%, 0%) translate3d(0px, 0px, 0px)",
-              top: 0,
+              display:'none',
+              position: "absolute",
+              top: '-200px',
+
             }}
-            ref={appBuild}
+            ref={app}
           >
             <video
               className="videoDesign ms-5 ps-5 "
@@ -149,14 +157,14 @@ function BuildSection() {
               src={build1Video}
               style={{
                 transform: "translate(-50%, 0%) translate3d(0px, 0px, 0px)",
-                left: "25%",
-                top: '50px',
+                left: "115%",
+                top: 0,
                 zIndex: "-41",
               }}
             >
               <source src={build1Video} type="video/mp4"></source>
             </video>
-            Build
+            Design
             <p
               className="  text-light designSectionBodyTextStyle"
               style={{ marginLeft: "100px" }}
@@ -201,4 +209,4 @@ function BuildSection() {
   );
 }
 
-export default BuildSection;
+export default FlySection;

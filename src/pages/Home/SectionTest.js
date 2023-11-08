@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import butterflyVideo from "../../assets/video/animation/butterFly1.mp4";
-import build1Video from "../../assets/video/animation/build1.mp4";
-import marketVideo from "../../assets/video/animation/market-video-home.mp4";
+import gsap from "gsap";
 import MarketSection from "./MarketSection";
 import BuildSection from "./BuildSection";
 
@@ -9,36 +8,22 @@ function SectionTest() {
   const [opacity, setOpacity] = useState(0); // Set initial opacity to 0
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const viewportHeight = window.innerHeight;
-      const scrollStartThreshold = 1.7; // Define the start of the range (in pixels)
-      const scrollEndThreshold =1.9;   // Define the end of the range (in pixels)
-    
-      if (scrollY >= scrollStartThreshold*viewportHeight && scrollY <= scrollEndThreshold*viewportHeight) {
-        setOpacity(1);
-      } else {
-        setOpacity(0);
+   
+
+    let textAnimation=gsap.timeline();
+    textAnimation.from('word',{
+      y:100,
+      stagger:{
+        each:0.06
       }
-    }
-    
-    
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  });
+    })
+  },[]);
 
   return (
     <div className="desing bg-dark  " style={{height:'250vh' }}>
 
 
-      <section id="flySection "  className="desingSectionContant mt-5 pt-6"   style={{
-        opacity,
-        transition: 'opacity 0.5s'  // You can adjust the transition duration
-      }}>
+      <section id="flySection "  className="desingSectionContant mt-5 pt-6"    >
         <div className="ms-5 ps-5">
           <video
             className="videoDesign ms-3 ps-lg-6  "
@@ -54,8 +39,11 @@ function SectionTest() {
         </div>
         <div className=" align-items-baseline">
           <div className="d-flex justify-content-center ">
-            <h1 className="text-light  text-center fst-normal designSectionFontSize">
-              Design
+            <h1 className="text-light   d-flex">
+              {'Design'.split('').map((word)=>{
+                return word === '' ?<div className="word">&nbsp;</div>:<div className="word">{word}</div>
+              })}
+             
             </h1>
           </div>
           <p
