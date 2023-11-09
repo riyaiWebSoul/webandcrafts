@@ -134,3 +134,6 @@ font-family: 'Taviraj', serif;
   position: relative;
   z-index: 2; /* These sections will be behind the flySection */
 }
+.visible{
+  opacity: 1;
+}
