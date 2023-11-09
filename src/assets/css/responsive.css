@@ -576,7 +576,7 @@
     --margin-x: 2.7777777778rem;
     width: 100%;
     position: fixed;
-    min-height: 100%;
+    min-height: fit-content;
     top: 74px;
     left: 0;
     right: 0;
