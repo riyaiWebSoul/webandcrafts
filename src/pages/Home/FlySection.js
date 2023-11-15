@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
@@ -19,16 +19,14 @@ function FlySection() {
 
     let tl = gsap.timeline({
       scrollTrigger: {
-        trigger: "#section-title",
+        trigger: ".section-title",
         start: "top -350",
         pin: true,
         scrub: 0.00,
         markers: false,
-      },
-      
+      }
     });
  
-
     tl.to(element, {
       display: 'none',
       y: "-190",
@@ -86,9 +84,16 @@ function FlySection() {
       splitTypeInstance.revert();
       
     };
-  }, []);
+  },
 
+  
 
+   []);
+
+useEffect(()=>{
+ 
+
+},[useLayoutEffect])
 
 
 
