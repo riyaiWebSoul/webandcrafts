@@ -46,7 +46,7 @@ const Section = () => {
 
         const showSection = () => {
             gsap.set(section, { opacity: 0, display: 'block' });
-            gsap.to(section, { opacity: 1, duration: 0.5 });
+            gsap.to(section, { opacity: 1, duration: 0.0 });
         };
 
         ScrollTrigger.create({
@@ -62,7 +62,7 @@ const Section = () => {
     
 
     return (
-        <div className='bg-dark'>
+        <div className='bg-dark z-3'>
    <div className='container '>
             <section id="textSectionDemoSection" ref={desingComponent}>
                 <div className='  d-flex justify-content-center align-items-center' style={{ height: '100vh' }}>
