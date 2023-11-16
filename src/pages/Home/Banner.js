@@ -23,7 +23,7 @@ function Banner() {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const viewportHeight = window.innerHeight;
-      const threshold = 0.4; // You can adjust this value if needed
+      const threshold = 0.6; // You can adjust this value if needed
 
       if (scrollY >= viewportHeight * threshold) {
         setOpacity(0);

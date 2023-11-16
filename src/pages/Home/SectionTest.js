@@ -1,174 +1,128 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SplitType from "split-type";
-import build1Video from "../../assets/video/animation/butterFly1.mp4";
-
+import React, { useLayoutEffect, useRef, useState } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import butterflyVideo from '../../assets/video/animation/butterFly1.mp4';
+import SplitType from 'split-type';
+ 
 // Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
-
+ 
 function SectionTest() {
+  const [reversed, setReversed] = useState(false);
   const app = useRef();
-
+  const designSection = useRef();
+ 
   useLayoutEffect(() => {
     const element = app.current;
-
-    let splitTypeInstance = new SplitType(".section-title styleByGsap designSectionBodyTextStyle", {
-      types: "chars",
-    });
-
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#section-title",
-        start: "top -350",
-        pin: true,
-        scrub: 0.00,
-        markers: false,
-      },
-      
-    });
  
-
-    tl.to(element, {
-      display: 'none',
-      y: "-190",
-      x: '-120',
-    })
-      .fromTo(
-        element,
-        {
-          display: 'none',
-          y: "-150",
-          x: '-120',
-          opacity: '0',
-          letterSpacing: "-10px",
-          transform: "translate3d(-520px, -500px, -550px)",
-          filter: "blur(500px)",
-          visibility: "hidden",
-          paddingBottom: 5,
-          zIndex: 0,
-          delay: 0,
+    gsap.registerPlugin(ScrollTrigger);
+    let ctx = gsap.context(() => {
+      let split = new SplitType('#section-title h1', { types: 'chars' });
+      split.chars.forEach((item, index)=> {
+      gsap
+        .timeline({
           scrollTrigger: {
-            trigger: element,
-            start: "top top",
-            end: "bottom center",
-            scrub: false,
+            trigger: '#section-title',
+            // start: "top top",
+            // end: "+=150%",
+            pin: true,
+            scrub: 0.75,
+            markers: false,
           },
+        })
+        .fromTo(
+         item,
+          {
+            opacity: 0,
+            x: `-${ (index + 1)*20 }px`,
+            filter: `blur(${gsap.utils.mapRange(0, 5, 0, split.chars.length + index, 5)}px)`,
+            visibility: 'inherit',
+            force3D:true,
+            y:'-100px'
+          },
+          {
+            scrollTrigger: {
+              trigger: element, // Element to trigger the animation
+              start: 'top bottom', // Start animation when the element is at the top of the viewport
+              end: 'center center', // End animation when the element is at the center of the viewport
+              scrub: true, // Animation progresses as you scroll
+            },
+            x: '0px',
+            ease: 'none',
+            opacity: 1,
+            rotateX: '0px',
+            filter: 'blur(0px)',
+            visibility: 'inherit',
+          }
+        )
+      })
+ 
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: '#section-title .video-container',
+            scrub: 0.75,
+            markers: false,
         },
-        {
-          y: "150",
-          x: '0',
-          ease: "none",
-          opacity: 1,
-          duration: 1,
-          display:'block',
-          letterSpacing: "0px",
-          scrollTrigger: {
-            trigger: element,
-            start: "top center",
-            end: "bottom center",
-            scrub: .0,
-          },
-          transform: "translate3d(0px, 0px, 0px)",
-          filter: "blur(0px)",
-          visibility: "inherit",
-        }
-      )    
-      .set(
-        element,
-        {
-          display:'none',
-        }
-      )   
-
-    return () => {
-      tl.kill();
-      splitTypeInstance.revert();
-      
-    };
+      }).fromTo('#section-title .video-container', {
+          scale: (0.6, 0.6),
+          x: '-25%',
+          y:'-500px',
+          opacity:0,
+          visibility: 'hidden',
+           
+      }, {
+        scrollTrigger: {
+          trigger: element, // Element to trigger the animation
+          start: 'top bottom', // Start animation when the element is at the top of the viewport
+          end: 'center center', // End animation when the element is at the center of the viewport
+          scrub: true, // Animation progresses as you scroll
+        },
+        x: 0,
+        y:'-500px',
+        opacity:1,
+        visibility: 'inherit',
+        scale: 'none'
+      })
+ 
+ 
+      return () => split.revert(); // context cleanup
+    }); // <- scopes all selector text inside the context to this component (optional, default is document)
+ 
+    return () => ctx.revert(); // useLayoutEffect cleanup
   }, []);
-
-
-
-
-
+ 
   return (
-    <div className="desing" style={{ height: "400px" }}>
-      <div
-        id="section-title"
-        className="align-items-baseline"
-        style={{ textAlign: "left" }}
-      >
-        <div className="d-flex justify-content-center section-title">
-          <h1
-            className="text-light styleByGsap fst-normal designSectionFontSize"
-            style={{
-              minWidth: "max-content",
-              transform: "translate(-50%, 0%) translate3d(0px, 0px, 0px)",
-              display: "none",
-              position: "absolute",
-              top: '-550px'
-            }}
-            ref={app}
-          >
-            <video
-              className="videoDesign ms-5 ps-5 "
-              width="200px"
-              height="100px"
-              loop
-              autoPlay
-              muted={true}
-              src={build1Video}
-              style={{
-                transform: "translate(-50%, 0%) translate3d(0px, 0px, 0px)",
-                left: "115%",
-                top: 0,
-                zIndex: "-41",
-              }}
-            >
-              <source src={build1Video} type="video/mp4"></source>
-            </video>
-            Design
-            <p
-              className="  text-light designSectionBodyTextStyle " 
-              style={{ marginLeft: "100px" }}
-            >
-              Intelligent design is the essence <br />
-              of nature; that’s our inspiration <br /> in crafting tomorrow’s
-              tech realm.
-            </p>
-            <div style={{ marginLeft: "100px" }}>
-              <a
-                className="newBanner_navigate_btn__9VKft "
-                style={{ fontSize: "initial" }}
-              >
-                <span>Learn More</span>
-                <span>
-                  <svg
-                    className=""
-                    width="16"
-                    height="16"
-                    viewBox="0 0 1538 1024"
-                    xmlns="http://www.w3.org/2000/svg"
-                    style={{ display: "inlineBlock", verticalAlign: "middle" }}
-                  >
-                    <path
-                      d="M1006.294 1024l-67.791-70.432 458.589-441.568-458.687-441.568 67.791-70.432 531.956 512z"
-                      style={{ fill: "rgb(255, 255, 255)" }}
-                    ></path>
-                    <path
-                      d="M1467.329 560.813h-1467.329v-97.822h1467.329z"
-                      style={{ fill: "rgb(255, 255, 255)" }}
-                    ></path>
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </h1>
+    <div className='desing'>
+      <div id='section-title' ref={designSection} className='align-items-baseline' style={{ textAlign: 'left' }}>
+        {/* <div className='d-flex justify-content-center section-title'> */}
+        <h1 className='text-light fst-normal designSectionFontSize' style={{ minWidth: 'max-content', left: '-50%', position: 'absolute', top: 0, transform:'translate(-50%, 0)' }} ref={app}>
+          Design
+        </h1>
+        <div className='video-container'>
+        <video  src={butterflyVideo} className='videoDesign' width='200px' height='100px' loop autoPlay muted={true}>
+          </video>
         </div>
+        {/* </div> */}
+        {/* <p className='p text-light designSectionBodyTextStyle'>
+          Intelligent design is the essence <br />
+          of nature; that’s our inspiration <br /> in crafting tomorrow’s tech realm.
+        </p>
+        <a className='newBanner_navigate_btn__9VKft ' href='works'>
+          <span>Learn More</span>
+          <span>
+            <svg className='' width='16' height='16' viewBox='0 0 1538 1024' xmlns='http://www.w3.org/2000/svg' style={{ display: 'inlineBlock', verticalAlign: 'middle' }}>
+              <path d='M1006.294 1024l-67.791-70.432 458.589-441.568-458.687-441.568 67.791-70.432 531.956 512z' style={{ fill: 'rgb(255, 255, 255)' }}></path>
+              <path d='M1467.329 560.813h-1467.329v-97.822h1467.329z' style={{ fill: 'rgb(255, 255, 255)' }}></path>
+            </svg>
+          </span>
+        </a> */}
       </div>
     </div>
   );
 }
-
+ 
 export default SectionTest;
+
+
+
+

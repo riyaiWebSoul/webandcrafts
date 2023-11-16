@@ -9,6 +9,7 @@ import ClientSection from "../pages/Home/ClientSection";
 import CareerHomeSection from "../pages/Home/CareerHomeSection";
 import BlogSection from "../pages/Home/BlogSection";
 import Section from "../pages/Home/Section";
+import SectionTest from "../pages/Home/SectionTest";
 
 
 
@@ -17,9 +18,10 @@ function HomePage() {
     <div className="App">
     <Banner/>
      <Section/>
-    <FlySection/>
+     {/* <SectionTest/> */}
+    {/* <FlySection/>
     <BuildSection/>
-    <MarketSection/>
+    <MarketSection/> */}
     <WorkListingSection/>
       <OurStoryComponent />
       <ServiceListing />

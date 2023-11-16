@@ -1,6 +1,7 @@
 *{
   --wac-body-font-family: '__PRIMARY_FONT_e530d6', '__PRIMARY_FONT_Fallback_e530d6';
   --wac-body-font-family-secondary: '__Taviraj_bb551c', '__Taviraj_Fallback_bb551c';
+  scroll-behavior: smooth;
 }
 
 
@@ -92,7 +93,7 @@ font-family: 'Taviraj', serif;
 .designSectionBodyTextStyle{
   line-height: 1.6666666667;
   font-size: 1.2222222222rem;
-  text-align: left !important;
+ 
 }
 .videoDesign{
   scale: 3;
