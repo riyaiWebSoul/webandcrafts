@@ -123,7 +123,7 @@ function BuildSection() {
 
   return (
     <div className="desing" style={{ height:"900px"}}>
-      <div
+      <section
         id="section-title"
         ref={designSectionBuild}
         className="align-items-baseline"
@@ -196,7 +196,7 @@ function BuildSection() {
           </h1>
         </div>
         
-      </div>
+      </section>
     </div>
   );
 }

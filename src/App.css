@@ -110,16 +110,9 @@ font-family: 'Taviraj', serif;
 .buildDivStyle{
   position: absolute;
 }
-.gsap-marker-scroller-start{
-  display: none !important;
-}
 
-.gsap-marker-scroller-end {
-  display: none !important;
-}
-.gsap-marker-end{
-  display: none !important;
-}
+
+
 /* Add these styles to your CSS file or use inline styles */
 
 .flySection {
