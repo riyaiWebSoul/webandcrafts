@@ -275,7 +275,7 @@ const Section = () => {
 
 
   return (
-    <div className="bg-dark z-3" style={{ height: "15000px" }}>
+    <div className="bg-dark z-3" >
       <div className="container ">
         <section id="textSectionDemoSection" ref={desingComponent}>
           <div
