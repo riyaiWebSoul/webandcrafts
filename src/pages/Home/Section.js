@@ -94,8 +94,8 @@ const Section = () => {
           .timeline({
             scrollTrigger: {
               trigger: "#section-title",
-              // start: "top top",
-              // end: "+=150%",
+              start: "top top",
+              end: "top +=150%",
               pin: true,
               scrub: {
                 x: 0.75, // Change this value to control the scrubbing on the y-axis
