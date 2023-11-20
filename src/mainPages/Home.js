@@ -17,8 +17,8 @@ function HomePage() {
   return (
     <div className="App">
     <Banner/>
-     <Section/>
-     {/* <SectionTest/> */}
+     {/* <Section/> */}
+     <SectionTest/>
     {/* <FlySection/>
     <BuildSection/>
     <MarketSection/> */}

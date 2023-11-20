@@ -8,10 +8,16 @@ import build1Video from "../../assets/video/animation/build1.mp4";
 const Section = () => {
   const [showFly,setShowFly]=useState(false)
   const desingComponent = useRef();
+  const builddesingComponent = useRef();
+const [buildShow,setBuildShow]=useState(false)
   const designSectionBuild=useRef
   const app = useRef();
+  const buildapp = useRef();
+
+  const   builddesignSection = useRef();
   const designSection = useRef();
 
+const buildSection=useRef();
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     let ctx = gsap.context(() => {
@@ -28,12 +34,12 @@ const Section = () => {
           },
         })
 
-        .to(
-          split.chars,
-          {  
-            color: "gray",
-            stagger:0.05
-          })
+        // .set(
+        //   split.chars,
+        //   {  
+        //     color: "gray",
+        //     stagger:0.05
+        //   })
           .to(split.chars,{ 
            
             color: "white",
@@ -88,6 +94,7 @@ const Section = () => {
 
     gsap.registerPlugin(ScrollTrigger);
     let ctx = gsap.context(() => {
+      
       let split = new SplitType("#section-title h1", { types: "chars" });
       split.chars.forEach((item, index) => {
         gsap
@@ -97,6 +104,7 @@ const Section = () => {
               start: "top top",
               end: "top +=150%",
               pin: true,
+            
               scrub: {
                 x: 0.75, // Change this value to control the scrubbing on the y-axis
                 z: 5.75, // Add this line to control the scrubbing on the z-axis
@@ -147,8 +155,10 @@ const Section = () => {
               transition: 1.5,
               scrollBehavior: "smooth",
               delay: 10,
+              
             }
-          );
+          )
+         
       });
 
       gsap
@@ -192,6 +202,7 @@ const Section = () => {
             visibility: "inherit",
             scale: (5.6, 1),
           }
+           
         );
         let splits = new SplitType(".peratext", { types: "chars" });
         splits.chars.forEach((item, index) => {
@@ -237,6 +248,7 @@ const Section = () => {
               scrub: 0.1, // Animation progresses as you scroll
             },
             x: "0px",
+            y:'-100px',
             scaleX: (28.6, 1.1),
             color: "white",
              
@@ -265,19 +277,248 @@ const Section = () => {
           scaleY: (5.6, 1),
         }
       )
-       
+     
+  
         ;})
       return () => splits.revert(); // context cleanup
-    }); // <- scopes all selector text inside the context to this component (optional, default is document)
-
-    return () => ctx.revert(); // useLayoutEffect cleanup
+    });
+    return () => ctx.revert();
+     
   }, []);
 
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
 
+    const sectionDesign = designSection.current;
+
+    const hideSection = () => {
+      gsap.fromTo(sectionDesign,
+        {  filter: `blur(1px)` }, 
+        { opacity: 0,display: "none" ,})
+      ;
+      return( setBuildShow(true) );
+    }
+    
+
+    const showSection = () => {
+      gsap.set(sectionDesign, { opacity: 1, display: "block" ,filter: `blur(0px)` });
+      gsap.to(sectionDesign, { opacity: 1,filter: `blur(0px)`  });
+    };
+
+    ScrollTrigger.create({
+      trigger:  "#section-title",
+       start:'top center',// Hide when scrolled up 60%
+      end: "center center", 
+      onEnter: showSection,
+      onLeave: hideSection,
+      onEnterBack: showSection,
+      onLeaveBack: showSection,
+      markers:true
+    });
+    
+  }, []);
+
+  useLayoutEffect(() => {
+    const buildelement = buildapp.current;
+
+    gsap.registerPlugin(ScrollTrigger);
+    let buildctx = gsap.context(() => {
+      
+      let buildsplit = new SplitType("#buildsection-title h2", { types: "chars" });
+      buildsplit.chars.forEach((item, index) => {
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: "#buildsection-title",
+              start: "top top",
+              end: "top +=150%",
+              pin: true,
+            
+              scrub: {
+                x: 0.75, // Change this value to control the scrubbing on the y-axis
+                z: 5.75, // Add this line to control the scrubbing on the z-axis
+                y: 0.1,
+              },
+              markers: true,
+            },
+          })
+           
+          .fromTo(
+            item,
+            {
+              opacity: 0,
+              x: `-${(index + 1) *50.1}px`,
+              filter: `blur(${gsap.utils.mapRange(
+                15,
+                0,
+                0,
+                buildsplit.chars.length + index,
+                1
+              )}px)`,
+              visibility: "hidden",
+              force3D: true,
+              y: "-200px",
+              delay: 5,
+              transition: 0.15,
+              
+            },
+            {
+              scrollTrigger: {
+                trigger: buildelement, // Element to trigger the animation
+                start: "top bottom", // Start animation when the element is at the top of the viewport
+                end: "center bottom", // End animation when the element is at the center of the viewport
+
+                scrub: {
+                  x: 955.75, // Change this value to control the scrubbing on the y-axis
+                  // Add this line to control the scrubbing on the z-axis
+                  y: 99.01,
+                }, // Animation progresses as you scroll
+              },
+              x: "-50px",
+              y: "-200px",
+              ease: "none",
+              opacity: 1,
+              rotateX: "0px",
+              filter: "blur(0px)",
+              visibility: "inherit",
+              transition: 1.5,
+              scrollBehavior: "smooth",
+              delay: 10,
+              
+            }
+          )
+         
+      });
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: "#buildsection-title .buildvideo-container",
+            scrub: {
+              x: 99.75, // Change this value to control the scrubbing on the y-axis
+              z: 5.005, // Add this line to control the scrubbing on the z-axis
+              y: 5.001,
+            },
+            start: "top bottom", // Start animation when the element is at the top of the viewport
+            end: "center center",
+            markers: false,
+          },
+        })
+        .set("#buildsection-title .buildvideo-container", {
+          y: "100px",
+        })
+        .fromTo(
+          "#buildsection-title .buildvideo-container",
+          {
+            scale: (0.6, 0.6),
+            y: "-350px",
+            x: "-50px",
+
+            opacity: 0,
+            visibility: "hidden",
+          },
+          {
+            scrollTrigger: {
+              trigger: buildelement, // Element to trigger the animation
+              start: "top 550px", // Start animation when the element is at the top of the viewport
+              end: "center bottom", // End animation when the element is at the center of the viewport
+              scrub: true, // Animation progresses as you scroll
+            },
+            x: "350px",
+            y: "-350px",
+            opacity: 1,
+            transition: 1,
+            visibility: "inherit",
+            scale: (5.6, 1),
+          }
+           
+        );
+        let buildsplits = new SplitType(".peratext", { types: "chars" });
+        buildsplits.chars.forEach((item, index) => {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: "#section-title .builddesignSectionBodyTextStyle",
+            scrub: {
+              x: 0.75, // Change this value to control the scrubbing on the y-axis
+              z: 5.005, // Add this line to control the scrubbing on the z-axis
+              y: 5.001,
+            },
+            start: "top -50px", // Start animation when the element is at the top of the viewport
+            end: "center center",
+            markers: false,
+          },
+        })
+         
+        .from(
+          "#buildsection-title .builddesignSectionBodyTextStyle",
+          { scrollTrigger: {
+            trigger: buildelement, // Element to trigger the animation
+            start: "center 550px", // Start animation when the element is at the top of the viewport
+            end: "center bottom",  // End animation when the element is at the center of the viewport
+            scrub: 0.1,
+            pin:true
+          },
+            scaleY: (0.6, 0.6),
+            scaleX: (1.6, .1),
+            x: "-205px",
+            y:'-100px',
+            color: "white",
+            stagger: 1.05,
+            opacity: 0,
+            visibility: "inherit",
+            
+          })
+          .to("#buildsection-title .builddesignSectionBodyTextStyle",{
+            scrollTrigger: {
+              trigger: buildelement, // Element to trigger the animation
+              start: "center 550px", // Start animation when the element is at the top of the viewport
+              end: "center bottom", // End animation when the element is at the center of the viewport
+              scrub: 0.1, // Animation progresses as you scroll
+            },
+            x: "0px",
+            y:'-100px',
+            scaleX: (28.6, 1.1),
+            color: "white",
+             
+            opacity: 1,
+            stagger: 1.05,
+            transition: 1,
+            visibility: "inherit",
+              
+            scaleY: (5.6, 1)
+          }
+        )
+        .to("#buildsection-title .builddesignSectionBodyTextStyle",{
+          scrollTrigger: {
+            trigger: buildelement, // Element to trigger the animation
+            start: "center 590px", // Start animation when the element is at the top of the viewport
+            end: "center bottom", // End animation when the element is at the center of the viewport
+            scrub: 0.1, // Animation progresses as you scroll
+          },
+          x: '0px',
+          color: "gray",
+          opacity: 1,
+          stagger: 1.05,
+          transition: 1,
+          visibility: "inherit",
+          scaleX: (3.6, 1),
+          scaleY: (5.6, 1),
+        }
+      )
+     
+  
+        ;})
+      return () => buildsplits.revert(); // context cleanup
+    });
+    return () => buildctx.revert();
+     
+  }, []);
+  
   return (
-    <div className="bg-dark z-3" >
+    <div className="bg-dark z-3"   >
       <div className="container ">
-        <section id="textSectionDemoSection" ref={desingComponent}>
+        <section  id="textSectionDemoSection" ref={desingComponent}>
           <div
             className="  d-flex justify-content-center align-items-center"
             style={{ height: "100vh" }}
@@ -292,7 +533,7 @@ const Section = () => {
           </div>
         </section>
       </div>
-      <section className="desing"   >
+      <section className="desing" data-speed="0.1"  >
         <div
           id="section-title"
           ref={designSection}
@@ -308,7 +549,7 @@ const Section = () => {
               position: "absolute",
               top: 0,
               transform: "translate(-50%, 0)",
-            }}
+            }} id="designId"
             ref={app}
           >
             Design
@@ -356,52 +597,46 @@ const Section = () => {
           </div>
         </div>
       </section>
-      <section
-        id="section-titleBuild"
-         
-        className="align-items-baseline"
-        style={{ textAlign: "left" }}
-      >
-        <div className="d-flex justify-content-center section-title">
+      <section className="desing" data-speed="0.1"  >
+        <div
+          id="buildsection-title"
+          ref={builddesignSection}
+          className="align-items-baseline"
+          style={{ textAlign: "left" }}
+        >
+          {/* <div className='d-flex justify-content-center section-title'> */}
           <h1
-            className="text-light styleByGsap fst-normal designSectionFontSize"
+            className="text-light fst-normal builddesignSectionFontSize"
             style={{
               minWidth: "max-content",
-              transform: "translate(-50%, 0%) translate3d(0px, 0px, 0px)",
+              left: "50%",
+              position: "absolute",
               top: 0,
-            }}
-            
+              transform: "translate(-50%, 0)",
+            }} id="designId"
+            ref={buildapp}
           >
+            Build
+          </h1>
+          <div className="buildvideo-container">
             <video
-              className="videoDesign ms-5 ps-5 "
+              src={butterflyVideo}
+              className="videoDesign"
               width="200px"
               height="100px"
               loop
               autoPlay
               muted={true}
-              src={build1Video}
-              style={{
-                transform: "translate(-50%, 0%) translate3d(0px, 0px, 0px)",
-                left: "25%",
-                top: '50px',
-                zIndex: "-41",
-              }}
-            >
-              <source src={build1Video} type="video/mp4"></source>
-            </video>
-            Build
-            <p
-              className="  text-light designSectionBodyTextStyle"
-              style={{ marginLeft: "100px" }}
-            >
+            ></video>
+          </div>
+          {/* </div> */}
+          <div className="builddesignSectionBodyTextStyle" style={{width:'500px'}}>
+            <p className="  peratext  "  >
               Intelligent design is the essence <br />
               of nature; that’s our inspiration <br /> in crafting tomorrow’s
               tech realm.
             </p>
-            <div style={{marginLeft: '100px'}}><a
-              className="newBanner_navigate_btn__9VKft "
-              style={{ fontSize: "initial" }}
-            >
+            <a className="newBanner_navigate_btn__9VKft " href="works">
               <span>Learn More</span>
               <span>
                 <svg
@@ -423,12 +658,8 @@ const Section = () => {
                 </svg>
               </span>
             </a>
-
-            </div>
-            
-          </h1>
+          </div>
         </div>
-        
       </section>
     </div>
   );
