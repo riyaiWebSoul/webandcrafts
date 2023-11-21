@@ -122,7 +122,7 @@ function BuildSection() {
 }, []);
 
   return (
-    <div className="desing" style={{ height:"900px"}}>
+    <div className="container desing" style={{ height:"900px"}}>
       <section
         id="section-title"
         ref={designSectionBuild}

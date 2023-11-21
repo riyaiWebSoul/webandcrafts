@@ -121,7 +121,7 @@ function MarketSection() {
 }, []);
 
   return (
-    <div className="desing" style={{ height:"650px"}}>
+    <div className="container desing" style={{ height:"650px"}}>
       <div
         id="section-title"
         ref={designSectionMarket}

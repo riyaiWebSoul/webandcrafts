@@ -9,6 +9,7 @@ const SectionTest = () => {
   const butterflyRef = useRef(null);
   const contentRef = useRef(null);
   const marketRef = useRef(null);
+  const mianTitleRef=useRef(null)
   const textRefs = useRef([]);
   const initSplitType = (element, options) => {
     const split = new SplitType(element, options);
@@ -84,9 +85,9 @@ const SectionTest = () => {
 
   return (
     <section className='homeDesignWrap_section__yQW8l d-none d-lg-block anim'>
-      <div  ref={titleRef} className='homeDesignWrap_title_anim__UyqSN' style={{ opacity: 0, visibility: 'hidden' }}>
-        <div className='pin-spacer' style={{ order: 0, placeSelf: 'auto', gridArea: 'auto', zIndex: 'auto', float: 'none', flexShrink: 1, display: 'block', margin: '0px', inset: '0px', position: 'relative', flexBasis: 'auto', overflow: 'visible', boxSizing: 'border-box', width: '1920px', height: '1688px', padding: '0px 0px 954px' }}>
-          <section className='homeHighlight_section__wGCrg' style={{ translate: 'none', rotate: 'none', scale: 'none', pointerEvents: 'none', opacity: 0, inset: '0px auto auto 0px', margin: '0px', maxWidth: '1920px', width: '1920px', maxHeight: '734px', height: '734px', padding: '200px 0px', transform: 'translate3d(0px, 954px, 0px)' }}>
+      <div   className='homeDesignWrap_title_anim__UyqSN' style={{ opacity: 0, visibility: 'hidden' }}>
+        
+          <section className='homeHighlight_section__wGCrg' ref={mianTitleRef} style={{ translate: 'none', rotate: 'none', scale: 'none', pointerEvents: 'none', opacity: 0, inset: '0px auto auto 0px', margin: '0px', maxWidth: '1920px', width: '1920px', maxHeight: '734px', height: '734px', padding: '200px 0px', transform: 'translate3d(0px, 954px, 0px)' }}>
             <div className='container'>
               <div className='homeHighlight_textWrapper__p2hOh' style={{ '--size-blend': '100%' }}>
                 <h2 className='homeHighlight_title__Ns4Z3'>
@@ -96,10 +97,10 @@ const SectionTest = () => {
               </div>
             </div>
           </section>
-        </div>
+        
       </div>
-      <div className='pin-spacer' style={{ order: 0, placeSelf: 'auto', gridArea: 'auto', zIndex: 'auto', float: 'none', flexShrink: 1, display: 'flex', margin: '0px', inset: '0px', position: 'relative', flexBasis: 'auto', overflow: 'visible', boxSizing: 'border-box', width: '1903px', height: '3871px', padding: '0px 0px 3318px' }}>
-        <div className='homeDesignWrap_section_inner__T_8p4' style={{ translate: 'none', rotate: 'none', scale: 'none', left: '0px', top: '0px', margin: '0px', maxWidth: '1903px', width: '1903px', maxHeight: '553px', height: '553px', padding: '0px', boxSizing: 'border-box', position: 'fixed', transform: 'translate3d(0px, 0px, 0px)' }}>
+      {/* <div className='pin-spacer' style={{ order: 0, placeSelf: 'auto', gridArea: 'auto', zIndex: 'auto', float: 'none', flexShrink: 1, display: 'flex', margin: '0px', inset: '0px', position: 'relative', flexBasis: 'auto', overflow: 'visible', boxSizing: 'border-box', width: '1903px', height: '3871px', padding: '0px 0px 3318px' }}> */}
+        <div className='homeDesignWrap_section_inner__T_8p4' ref={titleRef} style={{ translate: 'none', rotate: 'none', scale: 'none', left: '0px', top: '0px', margin: '0px', maxWidth: '1903px', width: '1903px', maxHeight: '553px', height: '553px', padding: '0px', boxSizing: 'border-box', position: 'fixed', transform: 'translate3d(0px, 0px, 0px)' }}>
           <div className='homeDesignWrap_section_item__1DDQl'>
             <section className='experienceHero_section__0vig7'>
               <div className='container'>
@@ -349,7 +350,7 @@ const SectionTest = () => {
 
           {/* ... (similar structure for other sections) ... */}
         </div>
-      </div>
+      {/* </div> */}
     </section>
   );
 };
