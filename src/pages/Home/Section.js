@@ -60,7 +60,7 @@ const Section = () => {
           position: 'fixed',
           // transform: 'none',
          inset: '0px auto auto 0px',
-          maxWidth: '1280px', width: '1280px', transform: 'translate(300px, 225px)',
+          maxWidth: '100vw', width: '100vw', transform: 'translate(0px, 225px)',
         }}>
  
        
