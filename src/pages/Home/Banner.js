@@ -48,7 +48,7 @@ function Banner() {
         id="case_study_slider1"
         style={{
           opacity,
-          transition: "opacity 0.3s", // You can adjust the transition duration
+          transition: "opacity 0.3s", zIndex: '99', // You can adjust the transition duration
         }}
       >
         <div

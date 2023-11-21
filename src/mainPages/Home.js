@@ -17,11 +17,11 @@ function HomePage() {
   return (
     <div className="App">
     <Banner/>
-     {/* <Section/> */}
-     <SectionTest/>
-    {/* <FlySection/>
+     <Section/>
+     {/* <SectionTest/> */}
+    <FlySection/>
     <BuildSection/>
-    <MarketSection/> */}
+    <MarketSection/>
     <WorkListingSection/>
       <OurStoryComponent />
       <ServiceListing />
