@@ -14,14 +14,14 @@ const Section = () => {
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     let ctx = gsap.context(() => {
-      let split = new SplitType('#desingComponent', { types: 'chars' });
+      let split = new SplitType('#textSection', { types: 'chars' });
     split.chars.forEach((item, index) => {
       // Initial color setting
 
 
       gsap.timeline({
         scrollTrigger: {
-          trigger: '#desingComponent',
+          trigger: '#textSection',
           pin: true,
           scrub: 0.1,
           markers: false,
@@ -32,10 +32,9 @@ const Section = () => {
           stagger: 0.1,
           markers: false,
           duration: 1,
-          opacity: 0, visibility: 'hidden'
         }, {
           color: 'white',
-          opacity: 1, visibility: 'inherit'
+         
         })
  }) // context cleanup
     });
@@ -45,40 +44,33 @@ const Section = () => {
  
 
   return (
-    <div id='mainTextSection' className=' bg-dark'>
-      {/* <section className='container' id='textSection' ref={desingComponent}  style={{
+    <div id='mainTextSection' className='bg-dark'>
+      <section id='textSection' ref={desingComponent}  style={{
           translate: 'none',
           rotate: 'none',
           scale: 'none',
           left: '0px',
           top: '-0.40625px',
           margin: '0px',
-width:'60vw',
+         
           maxHeight: '225px',
           height: '225px',
           padding: '0px',
           boxSizing: 'border-box',
-          position: 'fixed' ,
+          position: 'fixed',
+          // transform: 'none',
          inset: '0px auto auto 0px',
-            transform: 'translate(300px, 225px)',
+          maxWidth: '1280px', width: '1280px', transform: 'translate(0px, 225px)',
         }}>
+ 
+       
             <h1 className='text-start  fw-light ' id='believeId'>
               We believe in a world where <br />technology fosters your everyday <br /> experiences. And our mission is to <br /> make it happen!
             </h1>
-      </section> */}
-      <div id='mainTextSection'  className='homeDesignWrap_title_anim__UyqSN' style={{ opacity: 0, visibility: 'hidden' }}>
-        <section className='homeHighlight_section__wGCrg' ref={desingComponent} style={{ translate: 'none', rotate: 'none', scale: 'none', pointerEvents: 'none', opacity: 0, inset: '0px auto auto 0px', margin: '0px', maxWidth: '1920px', width: '1920px', maxHeight: '734px', height: '734px', padding: '200px 0px', transform: 'translate3d(0px, 954px, 0px)' }}>
-          <div className='container'>
-            <div className='homeHighlight_textWrapper__p2hOh' style={{ '--size-blend': '100%' }}>
-              <h2 className='homeHighlight_title__Ns4Z3'>
-                <span className='homeHighlight_nonBled__ZXxMH'>We believe in a world where technology fosters your everyday experiences. And our mission is to make it happen!</span>
-                <span className='homeHighlight_bled__GZQmK'>We believe in a world where technology fosters your everyday experiences. And our mission is to make it happen!</span>
-              </h2>
-            </div>
-          </div>
-        </section>
+         
       
-    </div>
+      </section>
+ 
     </div>
   );
 };
