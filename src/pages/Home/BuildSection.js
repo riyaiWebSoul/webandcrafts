@@ -31,7 +31,7 @@ function BuildSection() {
             // end: "+=150%",
             pin: true,
             scrub: 0.75,
-            markers: true,
+            markers: false,
           },
         })
         .fromTo(
@@ -77,7 +77,7 @@ function BuildSection() {
             // end: "+=150%",
             pin: false,
             scrub: 0.75,
-            markers: true,
+            markers: false,
           },
         })
         .to(elementBuild, {
@@ -122,7 +122,7 @@ function BuildSection() {
 }, []);
 
   return (
-    <div className="container desing" style={{ height:"900px"}}>
+    <div className=" desing" style={{ height:"900px"}}>
       <section
         id="section-title"
         ref={designSectionBuild}

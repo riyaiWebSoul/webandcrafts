@@ -14,16 +14,15 @@ const Section = () => {
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     let ctx = gsap.context(() => {
-      let split = new SplitType('#textSection', { types: 'chars' });
-    split.chars.forEach((item, index) => {
+      let split = new SplitType('#textSection', { types: 'words,chars' });
+    split.words.forEach((item, index) => {
       // Initial color setting
-
-
       gsap.timeline({
         scrollTrigger: {
           trigger: '#textSection',
           pin: true,
-          scrub: 0.1,
+          ease: "power4.out",
+          scrub: 0,
           markers: false,
         },
       })
@@ -34,9 +33,12 @@ const Section = () => {
           duration: 1,
         }, {
           color: 'white',
-         
         })
+        gsap.set('#believeId',{
+          color:'red'
+         })
  }) // context cleanup
+
     });
 
     return () => ctx.revert(); // useLayoutEffect cleanup
@@ -52,7 +54,7 @@ const Section = () => {
           left: '0px',
           top: '-0.40625px',
           margin: '0px',
-         
+   
           maxHeight: '225px',
           height: '225px',
           padding: '0px',
@@ -60,11 +62,11 @@ const Section = () => {
           position: 'fixed',
           // transform: 'none',
          inset: '0px auto auto 0px',
-          maxWidth: '1280px', width: '1280px', transform: 'translate(0px, 225px)',
+           transform: 'translate(300px, 225px)',
         }}>
  
        
-            <h1 className='text-start  fw-light ' id='believeId'>
+            <h1 className='text-start  fw-light '  >
               We believe in a world where <br />technology fosters your everyday <br /> experiences. And our mission is to <br /> make it happen!
             </h1>
          

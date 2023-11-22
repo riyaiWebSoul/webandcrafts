@@ -31,7 +31,7 @@ function MarketSection() {
             // end: "+=150%",
             pin: true,
             scrub: 0.75,
-            markers: true,
+            markers: false,
           },
         })
         .fromTo(
@@ -77,7 +77,7 @@ function MarketSection() {
             // end: "+=150%",
             pin: false,
             scrub: 0.75,
-            markers: true,
+            markers: false,
           },
         })
         .to(elementMarket, {
@@ -121,7 +121,7 @@ function MarketSection() {
 }, []);
 
   return (
-    <div className="container desing" style={{ height:"650px"}}>
+    <div className="desing" style={{ height:"650px"}}>
       <div
         id="section-title"
         ref={designSectionMarket}
