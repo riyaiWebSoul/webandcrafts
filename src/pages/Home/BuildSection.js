@@ -14,112 +14,112 @@ function BuildSection() {
   const ptagStyle = useRef();
   const pstyleBuild = useRef();
 
-  useLayoutEffect(() => {
-    const elementBuild = appBuild.current;
-    const pelementBuild = pstyleBuild.current;
-    gsap.registerPlugin(ScrollTrigger);
-    let ctxBuild = gsap.context(() => {
-      let split = new SplitType(".section-title styleByGsap", {
-        types: "chars",
-      });
+//   useLayoutEffect(() => {
+//     const elementBuild = appBuild.current;
+//     const pelementBuild = pstyleBuild.current;
+//     gsap.registerPlugin(ScrollTrigger);
+//     let ctxBuild = gsap.context(() => {
+//       let split = new SplitType(".section-title styleByGsap", {
+//         types: "chars",
+//       });
 
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: "#section-title",
-            // start: "top top",
-            // end: "+=150%",
-            pin: true,
-            scrub: 0.75,
-            markers: false,
-          },
-        })
-        .fromTo(
-          elementBuild,
-          {
-            x: "0",
-            opacity: 0,
-            letterSpacing: "-20px",
-            transform: "translate3d(-20px, 0px, 0px)",
-            filter: "blur(5px)",
-            visibility: "hidden",
-            padding: 5,
-          },
-          {
-            x: "0%",
-            ease: "none",
-            opacity: 1,
-            duration: 1,
-            letterSpacing: "0px",
-            scrollTrigger: {
-              trigger: elementBuild, // Element to trigger the animation
-              start: "top bottom", // Start animation when the elementBuild is at the top of the viewport
-              end: "center center", // End animation when the elementBuild is at the center of the viewport
-              scrub: true, // Animation progresses as you scroll
-            },
-            transform: "translate3d(0px, 0px, 0px)",
-            filter: "blur(0px)",
-            visibility: "inherit",
-          }
-        );
+//       gsap
+//         .timeline({
+//           scrollTrigger: {
+//             trigger: "#section-title",
+//             // start: "top top",
+//             // end: "+=150%",
+//             pin: true,
+//             scrub: 0.75,
+//             markers: false,
+//           },
+//         })
+//         .fromTo(
+//           elementBuild,
+//           {
+//             x: "0",
+//             opacity: 0,
+//             letterSpacing: "-20px",
+//             transform: "translate3d(-20px, 0px, 0px)",
+//             filter: "blur(5px)",
+//             visibility: "hidden",
+//             padding: 5,
+//           },
+//           {
+//             x: "0%",
+//             ease: "none",
+//             opacity: 1,
+//             duration: 1,
+//             letterSpacing: "0px",
+//             scrollTrigger: {
+//               trigger: elementBuild, // Element to trigger the animation
+//               start: "top bottom", // Start animation when the elementBuild is at the top of the viewport
+//               end: "center center", // End animation when the elementBuild is at the center of the viewport
+//               scrub: true, // Animation progresses as you scroll
+//             },
+//             transform: "translate3d(0px, 0px, 0px)",
+//             filter: "blur(0px)",
+//             visibility: "inherit",
+//           }
+//         );
 
-      return () => split.revert(); // context cleanup
-    }); // <- scopes all selector text inside the context to this component (optional, default is document)
+//       return () => split.revert(); // context cleanup
+//     }); // <- scopes all selector text inside the context to this component (optional, default is document)
 
-    let ptageElementBuild = gsap.context(() => {
-      let split = new SplitType(".section-title p", { types: "chars" });
+//     let ptageElementBuild = gsap.context(() => {
+//       let split = new SplitType(".section-title p", { types: "chars" });
 
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: "#section-title",
-            // start: "top top",
-            // end: "+=150%",
-            pin: false,
-            scrub: 0.75,
-            markers: false,
-          },
-        })
-        .to(elementBuild, {
-          x: "0",
-          opacity: 0,
-          letterSpacing: "-20px",
-          transform: "translate3d(-20px, 0px, 0px)",
-          filter: "blur(5px)",
-          visibility: "hidden",
-          padding: 5,
-          scale:1
-        });
+//       gsap
+//         .timeline({
+//           scrollTrigger: {
+//             trigger: "#section-title",
+//             // start: "top top",
+//             // end: "+=150%",
+//             pin: false,
+//             scrub: 0.75,
+//             markers: false,
+//           },
+//         })
+//         .to(elementBuild, {
+//           x: "0",
+//           opacity: 0,
+//           letterSpacing: "-20px",
+//           transform: "translate3d(-20px, 0px, 0px)",
+//           filter: "blur(5px)",
+//           visibility: "hidden",
+//           padding: 5,
+//           scale:1
+//         });
 
-      return () => split.revert(); // context cleanup
-    });
-    return () => ctxBuild, ptageElementBuild.revert();
-  }, []);
+//       return () => split.revert(); // context cleanup
+//     });
+//     return () => ctxBuild, ptageElementBuild.revert();
+//   }, []);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+//   useEffect(() => {
+//     gsap.registerPlugin(ScrollTrigger);
 
-    const section = designSectionBuild.current;
+//     const section = designSectionBuild.current;
 
-    const hideSection = () => {
-        gsap.to(section, { opacity: 0, display: 'none', duration: 0.3 });
-    };
+//     const hideSection = () => {
+//         gsap.to(section, { opacity: 0, display: 'none', duration: 0.3 });
+//     };
 
-    const showSection = () => {
-        gsap.set(section, { opacity: 1, display: 'block' });
-        gsap.to(section, { opacity: 1, duration: 0.1 });
-    };
+//     const showSection = () => {
+//         gsap.set(section, { opacity: 1, display: 'block' });
+//         gsap.to(section, { opacity: 1, duration: 0.1 });
+//     };
 
-    ScrollTrigger.create({
-        trigger: section,
-        start: 'top 10000%', // Hide when scrolled up 60%
-        end: 'top top', // Show when scrolled down
-        onEnter: showSection,
-        onLeave: hideSection,
-        onEnterBack: showSection,
-        onLeaveBack: hideSection,
-    });
-}, []);
+//     ScrollTrigger.create({
+//         trigger: section,
+//         start: 'top 10000%', // Hide when scrolled up 60%
+//         end: 'top top', // Show when scrolled down
+//         onEnter: showSection,
+//         onLeave: hideSection,
+//         onEnterBack: showSection,
+//         onLeaveBack: hideSection,
+//     });
+// }, []);
 
   return (
     <div className=" desing" style={{ height:"900px"}}>
@@ -134,7 +134,7 @@ function BuildSection() {
             className="text-light styleByGsap fst-normal designSectionFontSize"
             style={{
               minWidth: "max-content",
-              transform: "translate(-50%, 0%) translate3d(0px, 0px, 0px)",
+              transform: "translate(0%, 0%) translate3d(0px, 0px, 0px)",
               top: 0,
             }}
             ref={appBuild}

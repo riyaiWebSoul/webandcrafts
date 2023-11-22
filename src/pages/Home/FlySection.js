@@ -8,120 +8,125 @@ import SplitType from "split-type";
 gsap.registerPlugin(ScrollTrigger);
 
 function FlySection() {
-  const appDesign = useRef();
-  const designSectionDesign = useRef();
-  const pstyleDesign = useRef();
+  const [reversed, setReversed] = useState(false);
+  const appFly = useRef();
+  const designSectionFly = useRef();
+  const ptagStyle = useRef();
+  const pstyleFly = useRef();
 
-  useLayoutEffect(() => {
-    const elementDesign = appDesign.current;
-    gsap.registerPlugin(ScrollTrigger);
-    let ctxDesign = gsap.context(() => {
-      let split = new SplitType(".section-title styleByGsap", {
-        types: "chars",
-      });
+//   useLayoutEffect(() => {
+//     const elementFly = appFly.current;
+//     const pelementFly = pstyleFly.current;
+//     gsap.registerPlugin(ScrollTrigger);
+//     let ctxFly = gsap.context(() => {
+//       let split = new SplitType(".section-title styleByGsap", {
+//         types: "chars",
+//       });
 
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: "#section-title",
-            // start: "top top",
-            // end: "+=150%",
-            pin: true,
-            scrub: 0.75,
-            markers: false,
-          },
-        })
-        .fromTo(
-          elementDesign,
-          {
-            x: "0",
-            opacity: 0,
-            letterSpacing: "-20px",
-            transform: "translate3d(-20px, 0px, 0px)",
-            filter: "blur(5px)",
-            visibility: "hidden",
-            padding: 5,
-          },
-          {
-            x: "0%",
-            ease: "none",
-            opacity: 1,
-            duration: 1,
-            letterSpacing: "0px",
-            scrollTrigger: {
-              trigger: elementDesign, // Element to trigger the animation
-              start: "top bottom", // Start animation when the elementDesign is at the top of the viewport
-              end: "center center", // End animation when the elementDesign is at the center of the viewport
-              scrub: true, // Animation progresses as you scroll
-            },
-            transform: "translate3d(0px, 0px, 0px)",
-            filter: "blur(0px)",
-            visibility: "inherit",
-          }
-        );
+//       gsap
+//         .timeline({
+//           scrollTrigger: {
+//             trigger: "#section-title",
+//             // start: "top top",
+//             // end: "+=150%",
+//             pin: true,
+//             scrub: 0.75,
+//             markers: false,
+//           },
+//         })
+//         .fromTo(
+//           elementFly,
+//           {
+//             x: "0",
+//             opacity: 0,
+//             letterSpacing: "-20px",
+//             transform: "translate3d(-20px, 0px, 0px)",
+//             filter: "blur(5px)",
+//             visibility: "hidden",
+//             padding: 5,
+//           },
+//           {
+//             x: "0%",
+//             ease: "none",
+//             opacity: 1,
+//             duration: 1,
+//             letterSpacing: "0px",
+//             scrollTrigger: {
+//               trigger: elementFly, // Element to trigger the animation
+//               start: "top bottom", // Start animation when the elementFly is at the top of the viewport
+//               end: "center center", // End animation when the elementFly is at the center of the viewport
+//               scrub: true, // Animation progresses as you scroll
+//             },
+//             transform: "translate3d(0px, 0px, 0px)",
+//             filter: "blur(0px)",
+//             visibility: "inherit",
+//           }
+//         );
 
-      return () => split.revert(); // context cleanup
-    }); // <- scopes all selector text inside the context to this component (optional, default is document)
+//       return () => split.revert(); // context cleanup
+//     }); // <- scopes all selector text inside the context to this component (optional, default is document)
 
-    let ptageElementDesign = gsap.context(() => {
-      let split = new SplitType(".section-title p", { types: "chars" });
+//     let ptageElementFly = gsap.context(() => {
+//       let split = new SplitType(".section-title p", { types: "chars" });
 
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: "#section-title",
-            // start: "top top",
-            // end: "+=150%",
-            pin: false,
-            scrub: 0.75,
-            markers: false,
-          },
-        })
-        .to(elementDesign, {
-          x: "0",
-          opacity: 0,
-          letterSpacing: "-20px",
-          transform: "translate3d(-20px, 0px, 0px)",
-          filter: "blur(5px)",
-          visibility: "hidden",
-          padding: 5,
-          scale:1
-        });
+//       gsap
+//         .timeline({
+//           scrollTrigger: {
+//             trigger: "#section-title",
+//             // start: "top top",
+//             // end: "+=150%",
+//             pin: false,
+//             scrub: 0.75,
+//             markers: false,
+//           },
+//         })
+//         .to(elementFly, {
+//           x: "0",
+//           opacity: 0,
+//           letterSpacing: "-20px",
+//           transform: "translate3d(-20px, 0px, 0px)",
+//           filter: "blur(5px)",
+//           visibility: "hidden",
+//           padding: 5,
+//           scale:1
+//         });
 
-      return () => split.revert(); // context cleanup
-    });
-    return () => ctxDesign, ptageElementDesign.revert();
-  }, []);
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+//       return () => split.revert(); // context cleanup
+//     });
+//     return () => ctxFly, ptageElementFly.revert();
+//   }, []);
+//   useEffect(() => {
+//     gsap.registerPlugin(ScrollTrigger);
 
-    const section = designSectionDesign.current;
+//     const section = designSectionFly.current;
 
-    const hideSection = () => {
-        gsap.to(section, { opacity: 0, display: 'none', duration: 0.3 });
-    };
+//     const hideSection = () => {
+//         gsap.to(section, { opacity: 0, display: 'none', duration: 0.3 });
+//     };
 
-    const showSection = () => {
-        gsap.set(section, { opacity: 1, display: 'block' });
-        gsap.to(section, { opacity: 1, duration: 0.3 });
-    };
+//     const showSection = () => {
+//         gsap.set(section, { opacity: 1, display: 'block' });
+//         gsap.to(section, { opacity: 1, duration: 0.3 });
+//     };
 
-    ScrollTrigger.create({
-        trigger: section,
-        start: 'top 100%', // Hide when scrolled up 60%
-        end: 'top top', // Show when scrolled down
-        onEnter: showSection,
-        onLeave: hideSection,
-        onEnterBack: showSection,
-        onLeaveBack: hideSection,
-    });
-}, []);
+//     ScrollTrigger.create({
+//         trigger: section,
+//         start: 'top 100%', // Hide when scrolled up 60%
+//         end: 'top top', // Show when scrolled down
+//         onEnter: showSection,
+//         onLeave: hideSection,
+//         onEnterBack: showSection,
+//         onLeaveBack: hideSection,
+//     });
+// }, []);
 
   return (
-    <div className="desing" style={{ height:"650px"}}>
+    <div className="desing" 
+    // style={{ height:"650px"}}
+    >
       <div
         id="section-title"
-        ref={designSectionDesign}
+        ref={designSectionFly}
         className="align-items-baseline"
         style={{ textAlign: "left" }}
       >
@@ -130,11 +135,12 @@ function FlySection() {
             className="text-light styleByGsap fst-normal designSectionFontSize"
             style={{
               minWidth: "max-content",
-              transform: "translate(-50%, 0%) translate3d(0px, 0px, 0px)",
-
+              transform: "translate(0%, 0%) translate3d(0px, 0px, 0px)",
+              
+             
               top: 0,
             }}
-            ref={appDesign}
+            ref={appFly}
           >
             <video
               className="videoDesign ms-5 ps-5 "
@@ -153,7 +159,7 @@ function FlySection() {
             >
               <source src={butterflyVideo} type="video/mp4"></source>
             </video>
-            Design
+           Design
             <p
               className="  text-light designSectionBodyTextStyle"
               style={{ marginLeft: "100px" }}

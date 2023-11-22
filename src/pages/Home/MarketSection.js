@@ -14,114 +14,116 @@ function MarketSection() {
   const ptagStyle = useRef();
   const pstyleMarket = useRef();
 
-  useLayoutEffect(() => {
-    const elementMarket = appMarket.current;
-    const pelementMarket = pstyleMarket.current;
-    gsap.registerPlugin(ScrollTrigger);
-    let ctxMarket = gsap.context(() => {
-      let split = new SplitType(".section-title styleByGsap", {
-        types: "chars",
-      });
+//   useLayoutEffect(() => {
+//     const elementMarket = appMarket.current;
+//     const pelementMarket = pstyleMarket.current;
+//     gsap.registerPlugin(ScrollTrigger);
+//     let ctxMarket = gsap.context(() => {
+//       let split = new SplitType(".section-title styleByGsap", {
+//         types: "chars",
+//       });
 
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: "#section-title",
-            // start: "top top",
-            // end: "+=150%",
-            pin: true,
-            scrub: 0.75,
-            markers: false,
-          },
-        })
-        .fromTo(
-          elementMarket,
-          {
-            x: "0",
-            opacity: 0,
-            letterSpacing: "-20px",
-            transform: "translate3d(-20px, 0px, 0px)",
-            filter: "blur(5px)",
-            visibility: "hidden",
-            padding: 5,
-          },
-          {
-            x: "0%",
-            ease: "none",
-            opacity: 1,
-            duration: 1,
-            letterSpacing: "0px",
-            scrollTrigger: {
-              trigger: elementMarket, // Element to trigger the animation
-              start: "top bottom", // Start animation when the elementMarket is at the top of the viewport
-              end: "center center", // End animation when the elementMarket is at the center of the viewport
-              scrub: true, // Animation progresses as you scroll
-            },
-            transform: "translate3d(0px, 0px, 0px)",
-            filter: "blur(0px)",
-            visibility: "inherit",
-          }
-        );
+//       gsap
+//         .timeline({
+//           scrollTrigger: {
+//             trigger: "#section-title",
+//             // start: "top top",
+//             // end: "+=150%",
+//             pin: true,
+//             scrub: 0.75,
+//             markers: false,
+//           },
+//         })
+//         .fromTo(
+//           elementMarket,
+//           {
+//             x: "0",
+//             opacity: 0,
+//             letterSpacing: "-20px",
+//             transform: "translate3d(-20px, 0px, 0px)",
+//             filter: "blur(5px)",
+//             visibility: "hidden",
+//             padding: 5,
+//           },
+//           {
+//             x: "0%",
+//             ease: "none",
+//             opacity: 1,
+//             duration: 1,
+//             letterSpacing: "0px",
+//             scrollTrigger: {
+//               trigger: elementMarket, // Element to trigger the animation
+//               start: "top bottom", // Start animation when the elementMarket is at the top of the viewport
+//               end: "center center", // End animation when the elementMarket is at the center of the viewport
+//               scrub: true, // Animation progresses as you scroll
+//             },
+//             transform: "translate3d(0px, 0px, 0px)",
+//             filter: "blur(0px)",
+//             visibility: "inherit",
+//           }
+//         );
 
-      return () => split.revert(); // context cleanup
-    }); // <- scopes all selector text inside the context to this component (optional, default is document)
+//       return () => split.revert(); // context cleanup
+//     }); // <- scopes all selector text inside the context to this component (optional, default is document)
 
-    let ptageElementMarket = gsap.context(() => {
-      let split = new SplitType(".section-title p", { types: "chars" });
+//     let ptageElementMarket = gsap.context(() => {
+//       let split = new SplitType(".section-title p", { types: "chars" });
 
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: "#section-title",
-            // start: "top top",
-            // end: "+=150%",
-            pin: false,
-            scrub: 0.75,
-            markers: false,
-          },
-        })
-        .to(elementMarket, {
-          x: "0",
-          opacity: 0,
-          letterSpacing: "-20px",
-          transform: "translate3d(-20px, 0px, 0px)",
-          filter: "blur(5px)",
-          visibility: "hidden",
-          padding: 5,
-          scale:1
-        });
+//       gsap
+//         .timeline({
+//           scrollTrigger: {
+//             trigger: "#section-title",
+//             // start: "top top",
+//             // end: "+=150%",
+//             pin: false,
+//             scrub: 0.75,
+//             markers: false,
+//           },
+//         })
+//         .to(elementMarket, {
+//           x: "0",
+//           opacity: 0,
+//           letterSpacing: "-20px",
+//           transform: "translate3d(-20px, 0px, 0px)",
+//           filter: "blur(5px)",
+//           visibility: "hidden",
+//           padding: 5,
+//           scale:1
+//         });
 
-      return () => split.revert(); // context cleanup
-    });
-    return () => ctxMarket, ptageElementMarket.revert();
-  }, []);
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+//       return () => split.revert(); // context cleanup
+//     });
+//     return () => ctxMarket, ptageElementMarket.revert();
+//   }, []);
+//   useEffect(() => {
+//     gsap.registerPlugin(ScrollTrigger);
 
-    const section = designSectionMarket.current;
+//     const section = designSectionMarket.current;
 
-    const hideSection = () => {
-        gsap.to(section, { opacity: 0, display: 'none', duration: 0.3 });
-    };
+//     const hideSection = () => {
+//         gsap.to(section, { opacity: 0, display: 'none', duration: 0.3 });
+//     };
 
-    const showSection = () => {
-        gsap.set(section, { opacity: 1, display: 'block' });
-        gsap.to(section, { opacity: 1, duration: 0.3 });
-    };
+//     const showSection = () => {
+//         gsap.set(section, { opacity: 1, display: 'block' });
+//         gsap.to(section, { opacity: 1, duration: 0.3 });
+//     };
 
-    ScrollTrigger.create({
-        trigger: section,
-        start: 'top 100%', // Hide when scrolled up 60%
-        end: 'top top', // Show when scrolled down
-        onEnter: showSection,
-        onLeave: hideSection,
-        onEnterBack: showSection,
-        onLeaveBack: hideSection,
-    });
-}, []);
+//     ScrollTrigger.create({
+//         trigger: section,
+//         start: 'top 100%', // Hide when scrolled up 60%
+//         end: 'top top', // Show when scrolled down
+//         onEnter: showSection,
+//         onLeave: hideSection,
+//         onEnterBack: showSection,
+//         onLeaveBack: hideSection,
+//     });
+// }, []);
 
   return (
-    <div className="desing" style={{ height:"650px"}}>
+    <div className="desing" 
+    // style={{ height:"650px"}}
+    >
       <div
         id="section-title"
         ref={designSectionMarket}
@@ -133,7 +135,7 @@ function MarketSection() {
             className="text-light styleByGsap fst-normal designSectionFontSize"
             style={{
               minWidth: "max-content",
-              transform: "translate(-50%, 0%) translate3d(0px, 0px, 0px)",
+              transform: "translate(0%, 0%) translate3d(0px, 0px, 0px)",
               
              
               top: 0,
