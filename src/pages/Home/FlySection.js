@@ -127,7 +127,7 @@ function FlySection() {
       <div
         id="section-title"
         ref={designSectionFly}
-        className="align-items-baseline"
+        className="align-items-baseline mt-5"
         style={{ textAlign: "left" }}
       >
         <div className="d-flex justify-content-center section-title">

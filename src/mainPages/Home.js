@@ -19,9 +19,9 @@ function HomePage() {
     <Banner/>
      <Section/>
      {/* <SectionTest/> */}
-    <FlySection/>
+    {/* <FlySection/>
     <BuildSection/>
-    <MarketSection/>
+    <MarketSection/> */}
     <WorkListingSection/>
       <OurStoryComponent />
       <ServiceListing />
