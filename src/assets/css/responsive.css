@@ -12,6 +12,12 @@
         --padding-top:60px;
         --padding-bottom: 40px
     }
+    .videoDesign{
+        transform: translate(-75%, 0%) translate3d(0px, 0px, 0px);
+    }
+    .designSectionFontSize{
+        transform: scale(0.5, 1) !important
+    }
 }
 
 @media(min-width: 992px) {

@@ -15,6 +15,9 @@ import '../src/assets/css/76fc2bb4f37ac2e1.css'
 import '../src/assets/css/676a80dcb007833b.css'
 import '../src/assets/css/69310cf591daf60b.css'
 import '../src/assets/css/972008382dd30e14.css'
+import '../src/assets/css/24be3bcf7431ce2c.css'
+
+
 
 import Router from "./Router";
 

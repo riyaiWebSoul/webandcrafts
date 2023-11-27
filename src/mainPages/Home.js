@@ -13,15 +13,17 @@ import SectionTest from "../pages/Home/SectionTest";
 
 
 
+
 function HomePage() {
   return (
     <div className="App">
+
     <Banner/>
      <Section/>
      {/* <SectionTest/> */}
-    {/* <FlySection/>
+    <FlySection/>
     <BuildSection/>
-    <MarketSection/> */}
+    <MarketSection/>
     <WorkListingSection/>
       <OurStoryComponent />
       <ServiceListing />

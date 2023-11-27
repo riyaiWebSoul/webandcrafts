@@ -784,6 +784,9 @@
         --btn-padding-x: 1.3888888889rem;
         --btn-padding-y: 1rem
     }
+    .videoDesign{
+        transform: translate(-75%, 0%) translate3d(0px, 0px, 0px);
+    }
 }
 
 .customDropdownSearch_dropdown__Hq08U .dropdown-toggle:after {

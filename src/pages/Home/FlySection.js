@@ -1,207 +1,225 @@
-import React, { useLayoutEffect, useRef,useEffect, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useRef, useEffect, useState } from 'react';
+import { gsap } from 'gsap';
+import SplitType from 'split-type';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import butterflyVideo from '../../assets/video/animation/butterFly1.mp4';
-import SplitType from "split-type";
 
-// Register the ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
 
-function FlySection() {
-  const [reversed, setReversed] = useState(false);
-  const appFly = useRef();
-  const designSectionFly = useRef();
-  const ptagStyle = useRef();
-  const pstyleFly = useRef();
 
-//   useLayoutEffect(() => {
-//     const elementFly = appFly.current;
-//     const pelementFly = pstyleFly.current;
-//     gsap.registerPlugin(ScrollTrigger);
-//     let ctxFly = gsap.context(() => {
-//       let split = new SplitType(".section-title styleByGsap", {
-//         types: "chars",
-//       });
 
-//       gsap
-//         .timeline({
-//           scrollTrigger: {
-//             trigger: "#section-title",
-//             // start: "top top",
-//             // end: "+=150%",
-//             pin: true,
-//             scrub: 0.75,
-//             markers: false,
-//           },
-//         })
-//         .fromTo(
-//           elementFly,
-//           {
-//             x: "0",
-//             opacity: 0,
-//             letterSpacing: "-20px",
-//             transform: "translate3d(-20px, 0px, 0px)",
-//             filter: "blur(5px)",
-//             visibility: "hidden",
-//             padding: 5,
-//           },
-//           {
-//             x: "0%",
-//             ease: "none",
-//             opacity: 1,
-//             duration: 1,
-//             letterSpacing: "0px",
-//             scrollTrigger: {
-//               trigger: elementFly, // Element to trigger the animation
-//               start: "top bottom", // Start animation when the elementFly is at the top of the viewport
-//               end: "center center", // End animation when the elementFly is at the center of the viewport
-//               scrub: true, // Animation progresses as you scroll
-//             },
-//             transform: "translate3d(0px, 0px, 0px)",
-//             filter: "blur(0px)",
-//             visibility: "inherit",
-//           }
-//         );
+const FlySection = () => {
+ const [visibility, setVisibility] = useState('hidden');
+ const [paravisibility, setParavisibility] = useState('hidden');
+ const designSection = useRef();
+ const paragraphDesignSection = useRef();
+ const app = useRef();
 
-//       return () => split.revert(); // context cleanup
-//     }); // <- scopes all selector text inside the context to this component (optional, default is document)
 
-//     let ptageElementFly = gsap.context(() => {
-//       let split = new SplitType(".section-title p", { types: "chars" });
 
-//       gsap
-//         .timeline({
-//           scrollTrigger: {
-//             trigger: "#section-title",
-//             // start: "top top",
-//             // end: "+=150%",
-//             pin: false,
-//             scrub: 0.75,
-//             markers: false,
-//           },
-//         })
-//         .to(elementFly, {
-//           x: "0",
-//           opacity: 0,
-//           letterSpacing: "-20px",
-//           transform: "translate3d(-20px, 0px, 0px)",
-//           filter: "blur(5px)",
-//           visibility: "hidden",
-//           padding: 5,
-//           scale:1
-//         });
 
-//       return () => split.revert(); // context cleanup
-//     });
-//     return () => ctxFly, ptageElementFly.revert();
-//   }, []);
-//   useEffect(() => {
-//     gsap.registerPlugin(ScrollTrigger);
+ useEffect(() => {
+   gsap.registerPlugin(ScrollTrigger);
+   let reversed = false;
 
-//     const section = designSectionFly.current;
 
-//     const hideSection = () => {
-//         gsap.to(section, { opacity: 0, display: 'none', duration: 0.3 });
-//     };
+   const splitDesign = new SplitType('#designId', { types: 'line,words,chars' });
+   splitDesign.chars.forEach((item, index) => {
+    const timeline= gsap.timeline({
+       scrollTrigger: {
+       
+         trigger: '#section-title',
+         pin: true,
+         scrub:1 ,
+         markers: false,
+         onSnapComplete: ({ progress }) => {
+          // Check if the user has scrolled to the end
+          if (progress === 1 && !reversed) {
+            // Reverse the animation
+            timeline.reverse();
+            reversed = true;
+          }
+        },
+         onEnter:()=>setVisibility('visible'),
+         onLeave:()=>setVisibility('hidden'),
+         onEnterBack:()=>setVisibility('visible'),
+         onLeaveBack:()=>setVisibility('hidden'),
+       },
+     }).fromTo(
+       item,
+       {
+         opacity: 1,
+         scale: (2, 1),
+         y:'-350',
+         filter: `-blur(${gsap.utils.mapRange(15, 0, 0, splitDesign.chars.length + index, 10)}px)`,
+       },
+       {
+         x: '-50px',
+         y:'-350',
+         ease: 'none',
+         opacity: 1,
+         rotateX: '0px',
+         letterSpacing:'35px',
+         filter: 'blur(0px)',
+         scale: (3.6, 1.5),
+       }
+     )
+   });
 
-//     const showSection = () => {
-//         gsap.set(section, { opacity: 1, display: 'block' });
-//         gsap.to(section, { opacity: 1, duration: 0.3 });
-//     };
 
-//     ScrollTrigger.create({
-//         trigger: section,
-//         start: 'top 100%', // Hide when scrolled up 60%
-//         end: 'top top', // Show when scrolled down
-//         onEnter: showSection,
-//         onLeave: hideSection,
-//         onEnterBack: showSection,
-//         onLeaveBack: hideSection,
-//     });
-// }, []);
 
-  return (
-    <div className="desing" 
-    // style={{ height:"650px"}}
-    >
-      <div
-        id="section-title"
-        ref={designSectionFly}
-        className="align-items-baseline mt-5"
-        style={{ textAlign: "left" }}
-      >
-        <div className="d-flex justify-content-center section-title">
-          <h1
-            className="text-light styleByGsap fst-normal designSectionFontSize"
-            style={{
-              minWidth: "max-content",
-              transform: "translate(0%, 0%) translate3d(0px, 0px, 0px)",
-              
-             
-              top: 0,
-            }}
-            ref={appFly}
-          >
-            <video
-              className="videoDesign ms-5 ps-5 "
-              width="200px"
-              height="100px"
-              loop
-              autoPlay
-              muted={true}
-              src={butterflyVideo}
-              style={{
-                transform: "translate(-50%, 0%) translate3d(0px, 0px, 0px)",
-                left: "115%",
-                top: '50px',
-                zIndex: "-41",
-              }}
-            >
-              <source src={butterflyVideo} type="video/mp4"></source>
-            </video>
-           Design
-            <p
-              className="  text-light designSectionBodyTextStyle"
-              style={{ marginLeft: "100px" }}
-            >
-              Intelligent design is the essence <br />
-              of nature; that’s our inspiration <br /> in crafting tomorrow’s
-              tech realm.
-            </p>
-            <div style={{marginLeft: '100px'}}><a
-              className="newBanner_navigate_btn__9VKft "
-              style={{ fontSize: "initial" }}
-            >
-              <span>Learn More</span>
-              <span>
-                <svg
-                  className=""
-                  width="16"
-                  height="16"
-                  viewBox="0 0 1538 1024"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style={{ display: "inlineBlock", verticalAlign: "middle" }}
-                >
-                  <path
-                    d="M1006.294 1024l-67.791-70.432 458.589-441.568-458.687-441.568 67.791-70.432 531.956 512z"
-                    style={{ fill: "rgb(255, 255, 255)" }}
-                  ></path>
-                  <path
-                    d="M1467.329 560.813h-1467.329v-97.822h1467.329z"
-                    style={{ fill: "rgb(255, 255, 255)" }}
-                  ></path>
-                </svg>
-              </span>
-            </a>
 
-            </div>
-            
-          </h1>
+   gsap.timeline({
+     scrollTrigger: {
+       trigger: '#flyvideoid',
+       scrub: { x: 0.75, z: 5.005, y: 1.001 },
+       markers: false,
+     },
+   }).fromTo(
+     '#flyvideoid',
+     {
+       scale: (0.1, 0.1),
+       x: '-50px',
+       y: '-350px',
+       opacity: 0,
+       width:'100vw'
+     },
+     {
+       x: '350px',
+       y: '-250px',
+       width:'100vw',
+       opacity: 1,
+       transition: 1,
+       scale: (2.6, 1),
+     }
+   );
+
+
+
+
+    const splitMainParagraph = new SplitType('#mainparatext', { types: 'line,words,chars' });
+   splitMainParagraph.words.forEach((item, index) => {
+     gsap.timeline({
+       scrollTrigger: {
+         trigger: '#mainparatextSection',
+         pin: true,
+         scrub: { y: 5.1 },
+         markers: false,
+         
+         onEnter:()=>setParavisibility('visible'),
+         onLeave:()=>setParavisibility('hidden'),
+         onEnterBack:()=>setParavisibility('visible'),
+         onLeaveBack:()=>setParavisibility('hidden'),
+       },
+     }).fromTo(
+       item,
+       {
+         opacity: 1,
+         // filter: `blur(${gsap.utils.mapRange(15, 0, 0, splitMainParagraph.chars.length + index, 1)}px)`,
+         y: '-200px',
+         force3D: true,
+         transition: 0.15,
+       },
+       {
+         x: '-150px',
+         y: '-250px',
+         ease: 'none',
+         opacity: 1,
+         rotateX: '0px',
+         filter: 'blur(0px)',
+         transition: 1.5,
+         scrollBehavior: 'smooth',
+       }
+     ).reverse(item, {
+     x: '-150px',
+      y: '-250px',
+      ease: 'none',
+      opacity: 1,
+      rotateX: '0px',
+      filter: 'blur(0px)',
+      transition: 1.5,
+      scrollBehavior: 'smooth',
+    },{
+    opacity: 1,
+    filter: `blur(${gsap.utils.mapRange(15, 0, 0, splitMainParagraph.chars.length + index, 1)}px)`,
+    y: '-200px',
+    force3D: true,
+    transition: 0.15,
+  }
+ 
+     )
+   });
+ }, []);
+
+
+
+
+ return (
+   <section className='desing'>
+      <div className='spacing-small'>We believe in a world where</div>
+     <div
+       id='section-title'
+       ref={designSection}
+       className='align-items-baseline'
+       style={{
+        visibility:visibility
+       }}
+     >
+     
+       <div
+         className='text-light fst-normal designSectionFontSize section'
+         
+         id='designId'
+         ref={app}
+       >
+         Design
+       </div>
+       <div
+         id='flyvideoid'
+         className='video-container experienceHero_butterfly__K8ed5'
+       
+       >
+         <video src={butterflyVideo} className='videoDesign experienceHero_video__w3vCZ' width='200px' height='100px' loop autoPlay muted={true}></video>
+       </div>
+     
+       <div className='designSectionBodyTextStyle text-light' id='mainparatextSection' ref={paragraphDesignSection}>
+        <div  >
+        <p id='mainparatext' className='text-light mt-5 ' style={{
+        visibility:paravisibility
+       }}>
+           Intelligent design is the essence <br />
+           of nature; that’s our inspiration <br /> in crafting tomorrow’s tech realm.
+         </p>
+         <a className='newBanner_navigate_btn__9VKft ' href='works'>
+           <span>Learn More</span>
+           <span>
+             <svg className='' width='16' height='16' viewBox='0 0 1538 1024' xmlns='http://www.w3.org/2000/svg' style={{ display: 'inlineBlock', verticalAlign: 'middle' }}>
+               <path d='M1006.294 1024l-67.791-70.432 458.589-441.568-458.687-441.568 67.791-70.432 531.956 512z' style={{ fill: 'rgb(255, 255, 255)' }}></path>
+               <path d='M1467.329 560.813h-1467.329v-97.822h1467.329z' style={{ fill: 'rgb(255, 255, 255)' }}></path>
+             </svg>
+           </span>
+         </a>
         </div>
-        
-      </div>
-    </div>
-  );
-}
+       
+       </div>
+     </div>
+   
+   
+     <div className='spacing-small'>We believe in a world where</div>
+   </section>
+ );
+};
+
+
+
 
 export default FlySection;
+
+
+
+
+
+
+
+
+
+  

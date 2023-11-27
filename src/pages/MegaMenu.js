@@ -1,57 +1,189 @@
-import React from 'react';
+import React, { useState } from "react";
+import MegaMenuPartnership from "./megaMenuPages/MegaMenuPartnership";
+import Testimonials from "./megaMenuPages/TestimonialItem";
+import MegaMenuBlogsItem from "./megaMenuPages/MegaMenuBlogsItem";
+import MegaMenuContact from "./megaMenuPages/MegaMenuContact";
+import iconClose from "../assets/images/close Image/logo1.svg";
+import MegaMenuImpact from "./megaMenuPages/MegaMenuImpact";
+import roundedbackgroundImage from'../assets/images/AIML/bg-gradient-1.webp'
+import roundedbackgroundImageRightSide from '../assets/images/AIML/bg-gradient.webp'
 
-const MegaMenu = () => {
+const MegaMenu = ({ handalOnClick }) => {
+  const [isMegaMenuPartnership, setIsMegaMenuPartnership] = useState(false);
+  const [isMegaMenuTestimonialItem, setIsMegaMenuTestimonialItem] =
+    useState(false);
+  const [isMegaMenuBlogsItem, setIsMegaMenuBlogsItem] = useState(false);
+  const [isMegaMenuContact, setIsMegaMenuContact] = useState(false);
+  const [isMegaMenuImpact, setIsMegaMenuImpact] = useState(true);
+  const handlesetIsMegaMenuImpact = () => {
+    setIsMegaMenuImpact(true);
+    setIsMegaMenuTestimonialItem(false);
+    setIsMegaMenuBlogsItem(false);
+    setIsMegaMenuContact(false);
+    setIsMegaMenuPartnership(false);
+  };
+
+  const handlesetIsMegaMenuPartnership = () => {
+    setIsMegaMenuPartnership(true);
+    setIsMegaMenuTestimonialItem(false);
+    setIsMegaMenuBlogsItem(false);
+    setIsMegaMenuContact(false);
+    setIsMegaMenuImpact(false);
+  };
+
+  const handlesetIsMegaMenuTestimonialItem = () => {
+    setIsMegaMenuTestimonialItem(true);
+    setIsMegaMenuBlogsItem(false);
+    setIsMegaMenuContact(false);
+    setIsMegaMenuImpact(false);
+    setIsMegaMenuPartnership(false);
+  };
+
+  const handlesetIsMegaMenuBlogsItem = () => {
+    setIsMegaMenuBlogsItem(true);
+    setIsMegaMenuContact(false);
+    setIsMegaMenuImpact(false);
+    setIsMegaMenuTestimonialItem(false);
+    setIsMegaMenuPartnership(false);
+  };
+
+  const handlesetIsMegaMenuContact = () => {
+    setIsMegaMenuContact(true);
+    setIsMegaMenuBlogsItem(false);
+    setIsMegaMenuImpact(false);
+    setIsMegaMenuTestimonialItem(false);
+    setIsMegaMenuPartnership(false);
+  };
+
   return (
-    <div className="container headerMegaMenuFull_container__6bgsN">
-      <div className="headerMegaMenuFull_main_wrapper__FUbmU" data-lenis-prevent="true">
-        <div className="headerMegaMenuFull_row__FLa19 row">
-          <div className="col-12 headerMegaMenuFull_col_left__HX_QU">
-            <div className="megaMenuImpact_menu_wrapper__0_6pJ">
-              <div className="megaMenuImpact_menu_wrapper_inner__sZLsn">
-                <h2 className="ttl-80 megaMenuImpact_title__FWTuj">Our Impact</h2>
-                <p className="fs-24 megaMenuImpact_description__inbK8">
-                  Every innovation that happens here is out of a quest to get better at what we are already doing. We deliver ideas that make a difference, create experiences that transform lives and build ecosystems that foster progress.
-                </p>
-                <div className="megaMenuImpact_counts_wrapper__CAMip">
-                  <ul>
-                    <li>
-                      <h5>600+ </h5>
-                      <p>Projects launched successfully across the globe</p>
-                    </li>
-                    <li>
-                      <h5>10M</h5>
-                      <p>Daily customer engagement through our projects</p>
-                    </li>
-                    <li>
-                      <h5>100+</h5>
-                      <p>Digital transformation stories that made a difference</p>
-                    </li>
-                  </ul>
+    <div className="header_menu_icon__q1NWM">
+      <div className="header_icon__SiAfw">
+        <button className="headerOffcanvas_btn__Qt97P" aria-label="menu button">
+          <span></span>
+          <span></span>
+        </button>
+        <div className="headerMegaMenuFull_menu__9lTcp undefined headerMegaMenuFull_inview__2P21T">
+          <button
+            className="headerMegaMenuFull_close__d4Htj"
+            onClick={handalOnClick}
+          >
+             <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="35"
+    height="35"
+    viewBox="0 0 24 24"
+    fill="red"
+    stroke="white"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <line x1="18" y1="6" x2="6" y2="18" />
+    <line x1="6" y1="6" x2="18" y2="18" />
+  </svg>
+          </button>
+          <div className="headerMegaMenuFull_gradient_01__UgUnj">
+            <img
+              alt="close icon"
+              loading="lazy"
+              decoding="async"
+              data-nimg="fill"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+              srcSet={roundedbackgroundImage}
+              src={roundedbackgroundImage}
+              style={{
+                position: "absolute",
+                height: "100%",
+                width: "100%",
+                inset: "0px",
+                color: "transparent",
+              }}
+            />
+          </div>
+          <div className="headerMegaMenuFull_gradient_02__0lO5s">
+            <img
+              alt="close icon"
+              loading="lazy"
+              decoding="async"
+              data-nimg="fill"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+              srcSet={roundedbackgroundImageRightSide}
+              src={roundedbackgroundImageRightSide}
+              style={{
+                position: "absolute",
+                height: "100%",
+                width: "100%",
+                inset: "0px",
+                color: "transparent",
+              }}
+            />
+          </div>
+          <div className="container headerMegaMenuFull_container__6bgsN">
+            <div
+              className="headerMegaMenuFull_main_wrapper__FUbmU"
+              data-lenis-prevent="true"
+            >
+              <div className="headerMegaMenuFull_row__FLa19 row">
+                <div className="col-12 headerMegaMenuFull_col_left__HX_QU">
+                  {isMegaMenuImpact ? <MegaMenuImpact /> : null}
+                  {isMegaMenuPartnership ? <MegaMenuPartnership /> : null}
+                  {isMegaMenuTestimonialItem ? <Testimonials /> : null}
+                  {isMegaMenuBlogsItem ? <MegaMenuBlogsItem /> : null}
+                  {isMegaMenuContact ? <MegaMenuContact /> : null}
                 </div>
-                <div className="megaMenuImpact_btn_wrapper__wxS_K">
-                  <a className="btn btn-primary light" href="/impact">
-                    <span>Our Impact</span>
-                    <span>
-                      <svg className="" width="15" height="15" viewBox="0 0 1538 1024" xmlns="http://www.w3.org/2000/svg" style={{ display: 'inline-block', verticalAlign: 'middle' }}>
-                        <path d="M1006.294 1024l-67.791-70.432 458.589-441.568-458.687-441.568 67.791-70.432 531.956 512z"></path>
-                        <path d="M1467.329 560.813h-1467.329v-97.822h1467.329z"></path>
-                      </svg>
-                    </span>
-                  </a>
+                <div className=" col-12 headerMegaMenuFull_col_right__uU8KI">
+                  <nav>
+                    <ul className="headerMegaMenuFull_nav_lg__IaV79 text-start">
+                      <li>
+                        <a
+                           className={isMegaMenuImpact ? "headerMegaMenuFull_active__TbeMg" : null}
+                          href="/impact"
+                          onMouseEnter={handlesetIsMegaMenuImpact}
+                        >
+                          Impact
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                           className={isMegaMenuTestimonialItem ? "headerMegaMenuFull_active__TbeMg" : null}
+                          href="/testimonials"
+                          onMouseEnter={handlesetIsMegaMenuTestimonialItem}
+                        >
+                          Testimonial
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                           className={isMegaMenuPartnership ? "headerMegaMenuFull_active__TbeMg" : null}
+                          href="/partnership"
+                          onMouseEnter={handlesetIsMegaMenuPartnership}
+                        >
+                          Partnership
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                           className={isMegaMenuBlogsItem ? "headerMegaMenuFull_active__TbeMg" : null}
+                          href="/blog"
+                          onMouseEnter={handlesetIsMegaMenuBlogsItem}
+                        >
+                          Blog
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                           className={isMegaMenuContact ? "headerMegaMenuFull_active__TbeMg" : null}
+                          href="/contact-us"
+                          onMouseEnter={handlesetIsMegaMenuContact}
+                        >
+                          Contact
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="col-12 headerMegaMenuFull_col_right__uU8KI">
-            <nav>
-              <ul className="headerMegaMenuFull_nav_lg__IaV79">
-                <li><a className="headerMegaMenuFull_active__TbeMg" href="/impact">Impact</a></li>
-                <li><a className="" href="/testimonials">Testimonials</a></li>
-                <li><a className="" href="/partnership">Partnership</a></li>
-                <li><a className="" href="/blog">Blog</a></li>
-                <li><a className="" href="/contact-us">Contact</a></li>
-              </ul>
-            </nav>
           </div>
         </div>
       </div>

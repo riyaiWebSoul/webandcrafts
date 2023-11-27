@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import logo from '../assets/images/logo_images/logo1.svg';
 import MainMenu from './MainMenu';
+import OffCanvasMenu from './Home/OffCanvasMenu';
+import MegaMenu from './MegaMenu';
+import SearchOffCanvas from '../common/SearchComponent'
 // import logo from 'logo1.svg'
 
 function Header() {
   const [headerActive, setHeaderActive] = useState(false);
   const [isMainMenuVisible, setIsMainMenuVisible] = useState(false);
-
-
+const [offCanvasMenu,setOffCanvasMenu]=useState(null)
+const [mediaQueryMatches, setMediaQueryMatches] = useState(false);
+const[searchOffCanvas,setSearchOffCanvas]=useState(false)
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -28,17 +32,44 @@ function Header() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 1200px)');
+    setMediaQueryMatches(mediaQuery.matches);
 
+    const handleMediaQueryChange = (event) => {
+      setMediaQueryMatches(event.matches);
+    };
+
+    mediaQuery.addListener(handleMediaQueryChange);
+
+    // Clean up the media query listener when the component unmounts
+    return () => {
+      mediaQuery.removeListener(handleMediaQueryChange);
+    };
+  }, []);
   const handleServicesButtonHover = () => {
     setIsMainMenuVisible(true);
     setHeaderActive(true);
   
   };
+  const handelOffCavasMenu=()=>{
+    setOffCanvasMenu(true);
+  }
 
   const handleServicesButtonLeave = () => {
     setIsMainMenuVisible(false);
     setHeaderActive(false);
   };
+  const handleCloseOffCanvasMenu=()=>{
+    setOffCanvasMenu(false);
+  };
+  const handleSearchOffCanvas=()=>{
+    setSearchOffCanvas(true)
+  }
+  const handleCloseSearch=()=>{
+    setSearchOffCanvas(false)
+    console.log('clicked')
+  }
 
   return (
     <header className={` ${headerActive ? ' header_header__ts5le header  header_active__vmyFQ    ' : 'header_header__ts5le header  header_active__vmyFQ   header_over__okbNt     '} header_header__ts5le header     `} style={{ translate: 'none', rotate: 'none', scale: 'none', transform: 'translate3d (0px, 0px, 0px)' }}>
@@ -90,12 +121,13 @@ function Header() {
             </a>
             <ul className='header_icon_wrap__VSWn1'>
               <li>
-                <button className='search_searchBtn__pveTB' aria-label='search'>
+                <button className='search_searchBtn__pveTB' aria-label='search' onClick={handleSearchOffCanvas}>
                   <svg className='' width='20' height='20' viewBox='0 0 1017 1024' xmlns='http://www.w3.org/2000/svg' style={{ display: 'inline-block', verticalAlign: 'middle' }}>
                     <path d='M436.447 95.576c-188.232 0-340.824 152.592-340.824 340.824s152.592 340.824 340.824 340.824c188.232 0 340.824-152.592 340.824-340.824v0c-0.218-188.144-152.68-340.606-340.803-340.824l-0.020-0zM436.447 0c241.017 0 436.399 195.383 436.399 436.399s-195.383 436.399-436.399 436.399c-241.017 0-436.399-195.383-436.399-436.399v0c0-241.017 195.383-436.399 436.399-436.399v0z' style={{ fill: 'rgb(255, 255, 255)' }}></path>
                     <path d='M951.697 1023.952l-259.727-243.049 65.278-69.77 259.727 243.049z' style={{ fill: 'rgb(255, 255, 255)' }}></path>
-                  </svg>
+                  </svg> 
                 </button>
+                {searchOffCanvas ?<SearchOffCanvas closeHandle={handleCloseSearch}/>:null}
               </li>
               <li>
                 <span className='wacFolder_linkWrapper__CTQYZ'>
@@ -110,10 +142,12 @@ function Header() {
           </div>
           <div className='header_menu_icon__q1NWM'>
             <div className='header_icon__SiAfw'>
-              <button className='headerOffcanvas_btn__Qt97P' aria-label='menu button'>
+              <button className='headerOffcanvas_btn__Qt97P ' aria-label='menu button' onClick={handelOffCavasMenu}>
                 <span></span>
                 <span></span>
               </button>
+              {offCanvasMenu && mediaQueryMatches ? <MegaMenu handalOnClick={handleCloseOffCanvasMenu} /> : null}
+          {offCanvasMenu && !mediaQueryMatches ? <OffCanvasMenu handalOnClick={handleCloseOffCanvasMenu} /> : null}
             </div>
           </div>
         </div>

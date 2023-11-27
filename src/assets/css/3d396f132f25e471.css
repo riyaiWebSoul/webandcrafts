@@ -1049,7 +1049,7 @@ a.headerMegaMenu_main_link__PjzV9:hover span {
     border: none;
     border-bottom: 1px solid hsla(0, 0%, 100%, .192);
     transition: all .3s ease;
-    color: var(--color);
+    color: white;
     font-size: var(--font-size);
     font-weight: 300;
     text-decoration: none;
