@@ -4,7 +4,7 @@ import MainMenu from './MainMenu';
 import OffCanvasMenu from './Home/OffCanvasMenu';
 import MegaMenu from './MegaMenu';
 import SearchOffCanvas from '../common/SearchComponent'
-// import logo from 'logo1.svg'
+
 
 function Header() {
   const [headerActive, setHeaderActive] = useState(false);
@@ -16,7 +16,7 @@ const[searchOffCanvas,setSearchOffCanvas]=useState(false)
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
-      const scrollThreshold = 5.0; // 10%
+      const scrollThreshold = 11.9; // 10%
 
       if (scrollPosition >= windowHeight * scrollThreshold) {
         setHeaderActive(true);
